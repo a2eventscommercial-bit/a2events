@@ -90,9 +90,9 @@ export default function RealisationsPage() {
   const filterKeys: FilterKey[] = ['all', 'conference', 'stand', 'gala', 'corporate', 'branding']
 
   return (
-    <div className={`min-h-screen bg-[#0A0A0A] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
-      {/* Header */}
-      <section className="relative pt-40 pb-20">
+    <div className={`min-h-screen bg-[#F2F2F2] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
+      {/* Header — bandeau sombre court */}
+      <section className="relative pt-40 pb-20 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="text-[#CC0000] text-sm font-semibold uppercase tracking-[0.4em] mb-4">Portfolio</p>
@@ -103,7 +103,7 @@ export default function RealisationsPage() {
       </section>
 
       {/* Filter Bar */}
-      <div className="sticky top-20 z-30 bg-[#0A0A0A]/90 backdrop-blur-md border-y border-neutral-900 py-4">
+      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`flex items-center gap-2 overflow-x-auto pb-1 ${rtl ? 'flex-row-reverse' : ''}`}>
             {filterKeys.map((key) => (
@@ -113,7 +113,7 @@ export default function RealisationsPage() {
                 className={`flex-shrink-0 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-200 ${
                   activeFilter === key
                     ? 'bg-[#CC0000] text-white'
-                    : 'text-gray-500 hover:text-white'
+                    : 'text-gray-500 hover:text-[#0A0A0A]'
                 }`}
               >
                 {t.realisations.filters[key]}
@@ -126,9 +126,9 @@ export default function RealisationsPage() {
       {/* Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
-              {filtered.map((project, i) => (
+              {filtered.map((project) => (
                 <motion.div
                   key={project.id}
                   layout
@@ -136,29 +136,28 @@ export default function RealisationsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.3 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
                   onClick={() => { setSelectedProject(project); setActiveImage(0) }}
                 >
-                  <div className={`relative overflow-hidden ${i % 3 === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'}`}>
+                  <div className="relative overflow-hidden aspect-video">
                     <Image
                       src={project.images[0]}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
-                    <div className="absolute inset-0 bg-[#CC0000] opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-[#CC0000] opacity-0 group-hover:opacity-15 transition-opacity duration-500" />
                   </div>
-                  <div className={`mt-5 flex items-baseline justify-between ${rtl ? 'flex-row-reverse' : ''}`}>
-                    <h3 className="text-white text-xl font-bold group-hover:text-[#CC0000] transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <span className="text-gray-500 text-xs uppercase tracking-[0.25em]">
+                  <div className={`p-5 ${rtl ? 'text-right' : ''}`}>
+                    <span className="text-[#CC0000] text-[11px] font-semibold uppercase tracking-[0.2em]">
                       {t.realisations.filters[project.category as FilterKey]}
                     </span>
+                    <h3 className="text-[#0A0A0A] text-lg font-bold mt-1 group-hover:text-[#CC0000] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm mt-2">{project.desc}</p>
                   </div>
-                  <p className="text-gray-500 text-sm mt-2">{project.desc}</p>
                 </motion.div>
               ))}
             </AnimatePresence>
