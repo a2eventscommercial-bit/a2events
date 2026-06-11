@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import PhotoPlaceholder from '@/components/PhotoPlaceholder'
 import { useTranslations } from '@/lib/useTranslations'
 
 const projects = [
@@ -11,42 +11,67 @@ const projects = [
     title: 'Conférence Nationale Tech 2024',
     category: 'conference',
     desc: "Organisation complète d'une conférence de 500 participants à Alger.",
-    photoCount: 4,
+    images: [
+      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80',
+      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80',
+      'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1200&q=80',
+      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&q=80',
+    ],
   },
   {
     id: 2,
     title: 'Stand Expo Construire 2024',
     category: 'stand',
     desc: "Conception et réalisation d'un stand de 200m² pour une marque de construction.",
-    photoCount: 3,
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+      'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1200&q=80',
+      'https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?w=1200&q=80',
+    ],
   },
   {
     id: 3,
     title: "Gala de Fin d'Année Horizon",
     category: 'gala',
     desc: "Organisation d'un gala de prestige pour 300 invités au Sheraton d'Alger.",
-    photoCount: 3,
+    images: [
+      'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80',
+      'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&q=80',
+      'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&q=80',
+    ],
   },
   {
     id: 4,
     title: 'Séminaire Leadership Corporate',
     category: 'corporate',
     desc: 'Séminaire de formation et de team building pour une équipe de 150 cadres.',
-    photoCount: 3,
+    images: [
+      'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&q=80',
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80',
+      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200&q=80',
+    ],
   },
   {
     id: 5,
     title: 'Rebranding TechStart Algeria',
     category: 'branding',
     desc: "Refonte complète de l'identité visuelle d'une startup technologique.",
-    photoCount: 3,
+    images: [
+      'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
+      'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=1200&q=80',
+      'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=1200&q=80',
+    ],
   },
   {
     id: 6,
     title: 'Forum Investissement Algérie',
     category: 'conference',
     desc: 'Forum international avec 800 participants et 30 exposants.',
-    photoCount: 3,
+    images: [
+      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80',
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80',
+      'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=1200&q=80',
+    ],
   },
 ]
 
@@ -115,9 +140,14 @@ export default function RealisationsPage() {
                   onClick={() => { setSelectedProject(project); setActiveImage(0) }}
                 >
                   <div className={`relative overflow-hidden ${i % 3 === 0 ? 'aspect-[4/5]' : 'aspect-[4/3]'}`}>
-                    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
-                      <PhotoPlaceholder label={`Photo — ${project.title}`} />
-                    </div>
+                    <Image
+                      src={project.images[0]}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/40 to-transparent" />
                     <div className="absolute inset-0 bg-[#CC0000] opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                   </div>
                   <div className={`mt-5 flex items-baseline justify-between ${rtl ? 'flex-row-reverse' : ''}`}>
@@ -155,7 +185,13 @@ export default function RealisationsPage() {
             >
               {/* Main image */}
               <div className="relative h-72 sm:h-96">
-                <PhotoPlaceholder label={`Photo ${activeImage + 1} — ${selectedProject.title}`} />
+                <Image
+                  src={selectedProject.images[activeImage]}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 w-10 h-10 bg-[#CC0000] flex items-center justify-center text-white text-xl hover:bg-red-700 transition-colors"
@@ -166,7 +202,7 @@ export default function RealisationsPage() {
 
               {/* Thumbnails */}
               <div className="flex gap-2 p-4 overflow-x-auto">
-                {Array.from({ length: selectedProject.photoCount }).map((_, i) => (
+                {selectedProject.images.map((img, i) => (
                   <div
                     key={i}
                     onClick={() => setActiveImage(i)}
@@ -174,7 +210,7 @@ export default function RealisationsPage() {
                       activeImage === i ? 'border-[#CC0000]' : 'border-neutral-800'
                     }`}
                   >
-                    <PhotoPlaceholder label={`${i + 1}`} />
+                    <Image src={img} alt="" fill className="object-cover" sizes="80px" />
                   </div>
                 ))}
               </div>
