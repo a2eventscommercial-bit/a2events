@@ -3,25 +3,76 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --red: #CC0000;
+  --black: #0A0A0A;
+  --gray: #F2F2F2;
+  --white: #FFFFFF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    font-family: var(--font-inter), 'Noto Sans Arabic', sans-serif;
+  }
+
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', var(--font-inter), sans-serif;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-arabic {
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .section-dark {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+  }
+
+  .section-light {
+    background-color: #F2F2F2;
+    color: #0A0A0A;
+  }
+
+  .accent-border {
+    border-top: 3px solid #CC0000;
+  }
+
+  .text-red {
+    color: #CC0000;
+  }
+
+  .bg-red {
+    background-color: #CC0000;
+  }
+
+  .btn-primary {
+    @apply bg-[#CC0000] text-white px-8 py-3 font-semibold transition-all duration-300 hover:bg-[#aa0000] hover:scale-105 inline-block;
+  }
+
+  .btn-outline {
+    @apply border border-white text-white px-8 py-3 font-semibold transition-all duration-300 hover:bg-white hover:text-[#0A0A0A] inline-block;
+  }
+
+  .btn-outline-dark {
+    @apply border border-[#0A0A0A] text-[#0A0A0A] px-8 py-3 font-semibold transition-all duration-300 hover:bg-[#0A0A0A] hover:text-white inline-block;
+  }
+
+  .card-dark {
+    @apply bg-neutral-900 border-t-[3px] border-t-[#CC0000] p-6 transition-all duration-300 hover:bg-neutral-800;
+  }
+
+  .card-light {
+    @apply bg-white shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
   }
 }

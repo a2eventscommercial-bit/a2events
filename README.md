@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A² Events — Site Web Agence Événementielle
 
-## Getting Started
+Site web complet pour l'agence événementielle **A² Events**, construit avec Next.js 14, Tailwind CSS et Framer Motion.
 
-First, run the development server:
+## Stack technique
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 14** (App Router)
+- **Tailwind CSS** — styling
+- **Framer Motion** — animations
+- **Resend** — envoi d'emails via le formulaire de contact
+- **next/image** — optimisation des images
+- i18n maison : FR / AR / EN (JSON-based, sans dépendance externe)
+
+## Structure du projet
+
+```
+/app          → pages (Home, Services, Réalisations, À Propos, Contact)
+/app/api      → route handler pour le formulaire de contact (Resend)
+/components   → Navbar, Footer, HeroSection, SectionReveal, WhatsAppButton
+/lib          → i18n.ts, useTranslations.tsx
+/locales      → fr.json, ar.json, en.json
+/public       → logo et assets statiques
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation locale
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 1. Installer les dépendances
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 2. Configurer les variables d'environnement
+cp .env.example .env.local
+# → renseigner RESEND_API_KEY avec votre clé Resend
 
-## Learn More
+# 3. Lancer le serveur de développement
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Le site est disponible sur http://localhost:3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Variables d'environnement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | Clé API Resend pour l'envoi d'emails (resend.com) |
 
-## Deploy on Vercel
+## Déploiement sur Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Option 1 — Vercel CLI
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm i -g vercel
+vercel
+```
+
+### Option 2 — GitHub → Vercel
+
+1. Pousser le code sur GitHub
+2. Importer le repo sur vercel.com/new
+3. Ajouter la variable d'environnement `RESEND_API_KEY` dans les settings Vercel
+4. Déployer — Vercel détecte Next.js automatiquement
+
+## Configuration Resend
+
+1. Créer un compte sur resend.com
+2. Ajouter et vérifier votre domaine (`a2events.dz`)
+3. Générer une API Key
+4. Renseigner `RESEND_API_KEY` dans `.env.local` (dev) et dans les vars Vercel (prod)
+5. Mettre à jour l'adresse `from:` dans `/app/api/contact/route.ts` avec votre domaine vérifié
+
+## Personnalisation
+
+- **Logo** : placer le fichier dans `/public/logo.png` et remplacer le bloc `A²` dans Navbar/Footer
+- **Couleurs** : modifier les variables dans `globals.css` et `tailwind.config.ts`
+- **Contenu** : éditer les fichiers JSON dans `/locales/`
+- **Images** : remplacer les URLs Unsplash par vos propres photos dans les pages
+- **WhatsApp** : mettre à jour le numéro dans `/components/WhatsAppButton.tsx`
+- **Email de destination** : mettre à jour `to:` dans `/app/api/contact/route.ts`
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Page d'accueil avec hero animé, services, portfolio, témoignages |
+| `/services` | Les 8 services avec descriptions extensibles |
+| `/realisations` | Portfolio filtrable avec galerie modale |
+| `/a-propos` | Histoire, valeurs, équipe, chiffres clés |
+| `/contact` | Formulaire de contact + infos |
+| `/api/contact` | API Route pour l'envoi d'email via Resend |
+| `/sitemap.xml` | Sitemap généré automatiquement |

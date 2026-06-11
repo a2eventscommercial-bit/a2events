@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "realisations": "Réalisations",
+    "about": "À Propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "A² Events",
+    "slogan": "Ensemble, faisons de chaque événement un moment marquant et mémorable",
+    "cta": "Découvrir nos services",
+    "cta2": "Nous contacter"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Une expertise complète pour tous vos besoins événementiels",
+    "items": [
+      {
+        "id": "conferences",
+        "title": "Conférences & Séminaires",
+        "short": "Organisation complète de conférences, séminaires et événements professionnels.",
+        "long": "Nous prenons en charge l'organisation complète de vos conférences, séminaires, workshops et événements professionnels. De la conception du programme à la logistique sur place, notre équipe garantit une expérience irréprochable pour vos participants."
+      },
+      {
+        "id": "stands",
+        "title": "Stands d'Expositions",
+        "short": "Conception et réalisation de stands sur mesure pour vos expositions.",
+        "long": "Nous concevons et réalisons des stands d'exposition uniques qui reflètent l'identité de votre marque. De la conception graphique à la construction, nous gérons chaque détail pour maximiser votre impact visuel sur les salons et foires."
+      },
+      {
+        "id": "impression",
+        "title": "Impression & Communication",
+        "short": "Solutions d'impression et de communication visuelle de haute qualité.",
+        "long": "Notre service d'impression couvre l'ensemble de vos besoins en communication visuelle : flyers, brochures, affiches grand format, banderoles, kakémonos et tout support imprimé pour vos événements et campagnes marketing."
+      },
+      {
+        "id": "signaletique",
+        "title": "Supports Rigides & Signalétique",
+        "short": "Fabrication de supports rigides et solutions de signalétique professionnelle.",
+        "long": "Nous fabriquons et installons tous types de supports rigides et de signalétique : enseignes, panneaux, totems, plaques signalétiques et systèmes de navigation intérieure ou extérieure adaptés à vos espaces événementiels."
+      },
+      {
+        "id": "branding",
+        "title": "Conception Graphique & Branding",
+        "short": "Création d'identité visuelle et de supports de communication percutants.",
+        "long": "Notre équipe créative élabore votre identité visuelle complète : logo, charte graphique, supports de communication et direction artistique. Nous veillons à ce que chaque élément visuel reflète fidèlement les valeurs et l'ambition de votre marque."
+      },
+      {
+        "id": "digital",
+        "title": "Marketing Digital",
+        "short": "Stratégies digitales et gestion des réseaux sociaux pour vos événements.",
+        "long": "Nous développons et exécutons des stratégies de marketing digital complètes : gestion des réseaux sociaux, création de contenu, publicité en ligne, email marketing et analyse de performance pour maximiser la visibilité de vos événements."
+      },
+      {
+        "id": "logistique",
+        "title": "Logistique Événementielle",
+        "short": "Gestion logistique complète pour des événements sans faille.",
+        "long": "Notre département logistique coordonne tous les aspects opérationnels de vos événements : transport, hébergement, catering, sécurité, accueil, gestion des badges et coordination des prestataires pour une exécution parfaite."
+      },
+      {
+        "id": "media",
+        "title": "Couverture Médiatique",
+        "short": "Production de contenu et couverture médiatique professionnelle.",
+        "long": "Nous assurons la couverture médiatique complète de vos événements : photographie professionnelle, vidéographie, streaming en direct, montage vidéo, interviews et production de contenu pour enrichir votre présence digitale post-événement."
+      }
+    ]
+  },
+  "realisations": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez quelques-uns de nos projets les plus marquants",
+    "filters": {
+      "all": "Tous",
+      "conference": "Conférence",
+      "stand": "Stand",
+      "gala": "Gala",
+      "corporate": "Corporate",
+      "branding": "Branding"
+    },
+    "viewProject": "Voir le projet",
+    "close": "Fermer"
+  },
+  "why": {
+    "title": "Pourquoi nous choisir ?",
+    "subtitle": "L'excellence au service de vos ambitions",
+    "items": [
+      {
+        "title": "Expertise Reconnue",
+        "desc": "Plus de 5 ans d'expérience dans l'organisation d'événements d'envergure nationale et internationale."
+      },
+      {
+        "title": "Équipe Créative",
+        "desc": "Des professionnels passionnés qui transforment vos idées en expériences mémorables."
+      },
+      {
+        "title": "Suivi Personnalisé",
+        "desc": "Un interlocuteur dédié pour chaque projet, de la conception à la livraison."
+      },
+      {
+        "title": "Qualité Premium",
+        "desc": "Des partenaires et prestataires sélectionnés pour leur excellence et leur fiabilité."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Ce que disent nos clients",
+    "items": [
+      {
+        "name": "Karim Benali",
+        "role": "Directeur Général, TechCorp Algeria",
+        "text": "A² Events a organisé notre conférence annuelle avec une précision et une créativité remarquables. Tout était parfait, du début à la fin."
+      },
+      {
+        "name": "Samira Ouali",
+        "role": "Responsable Marketing, Groupe Horizon",
+        "text": "Un professionnalisme exemplaire et une attention aux détails qui font vraiment la différence. Je recommande vivement leurs services."
+      },
+      {
+        "name": "Mohamed Cherif",
+        "role": "PDG, Innovation Hub",
+        "text": "Notre stand d'exposition était le plus remarqué du salon. Merci à toute l'équipe pour leur travail exceptionnel et leur réactivité."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Parlons de votre projet",
+    "subtitle": "Transformons ensemble votre vision en réalité",
+    "button": "Prendre contact"
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "story": {
+      "title": "Notre Histoire",
+      "text1": "Fondée en 2019, A² Events est née de la passion de deux entrepreneurs algériens pour l'excellence événementielle. Notre agence a été créée avec une vision claire : offrir des prestations événementielles de haut niveau qui répondent aux standards internationaux tout en restant profondément ancrées dans la culture locale.",
+      "text2": "Au fil des années, nous avons su nous imposer comme un acteur incontournable du secteur événementiel en Algérie, en bâtissant une équipe de professionnels talentueux et une réputation fondée sur la qualité, la créativité et la fiabilité."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Accompagner nos clients dans la conception et la réalisation d'événements qui dépassent leurs attentes, en alliant créativité, excellence opérationnelle et maîtrise budgétaire."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Devenir l'agence événementielle de référence en Algérie et dans la région MENA, reconnue pour son innovation, son professionnalisme et sa capacité à créer des expériences inoubliables."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "items": [
+        { "title": "Excellence", "desc": "Nous visons la perfection dans chaque détail de nos prestations." },
+        { "title": "Créativité", "desc": "Chaque événement est une opportunité de repousser les limites de l'imagination." },
+        { "title": "Intégrité", "desc": "La transparence et l'honnêteté guident chacune de nos interactions." },
+        { "title": "Engagement", "desc": "Nous nous investissons pleinement dans chaque projet comme si c'était le nôtre." }
+      ]
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "members": [
+        { "name": "Amine Ait Oumeziane", "role": "Co-Fondateur & Directeur Créatif" },
+        { "name": "Anis Bouzid", "role": "Co-Fondateur & Directeur Opérationnel" },
+        { "name": "Yasmine Kadri", "role": "Responsable Communication & Branding" },
+        { "name": "Sofiane Meziane", "role": "Chef de Projet Événementiel" }
+      ]
+    },
+    "numbers": {
+      "title": "A² Events en Chiffres",
+      "items": [
+        { "value": "50+", "label": "Événements réalisés" },
+        { "value": "8", "label": "Services offerts" },
+        { "value": "5+", "label": "Années d'expérience" },
+        { "value": "100%", "label": "Clients satisfaits" }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous sommes à votre écoute pour donner vie à vos projets",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Numéro de téléphone",
+      "service": "Service concerné",
+      "selectService": "Sélectionnez un service",
+      "message": "Votre message",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Votre message a été envoyé avec succès ! Nous vous contacterons bientôt.",
+      "error": "Une erreur est survenue. Veuillez réessayer ou nous contacter directement."
+    },
+    "info": {
+      "phone": "+213 XX XX XX XX",
+      "email": "contact@a2events.dz",
+      "address": "Alger, Algérie",
+      "hours": "Lun - Ven : 8h00 - 17h00"
+    }
+  },
+  "footer": {
+    "tagline": "L'excellence événementielle à votre service.",
+    "links": "Liens rapides",
+    "follow": "Nous suivre",
+    "rights": "Tous droits réservés."
+  }
+}

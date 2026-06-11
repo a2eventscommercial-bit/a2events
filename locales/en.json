@@ -1,0 +1,201 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "realisations": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "A² Events",
+    "slogan": "Together, let's make every event a remarkable and memorable moment",
+    "cta": "Discover our services",
+    "cta2": "Contact us"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete expertise for all your event needs",
+    "items": [
+      {
+        "id": "conferences",
+        "title": "Conferences & Seminars",
+        "short": "Complete organization of conferences, seminars and professional events.",
+        "long": "We handle the complete organization of your conferences, seminars, workshops and professional events. From program design to on-site logistics, our team guarantees a flawless experience for your attendees."
+      },
+      {
+        "id": "stands",
+        "title": "Exhibition Stands",
+        "short": "Design and construction of custom stands for your exhibitions.",
+        "long": "We design and build unique exhibition stands that reflect your brand identity. From graphic design to construction, we manage every detail to maximize your visual impact at trade shows and fairs."
+      },
+      {
+        "id": "impression",
+        "title": "Print & Communication",
+        "short": "High-quality printing and visual communication solutions.",
+        "long": "Our print service covers all your visual communication needs: flyers, brochures, large format posters, banners, roll-ups and all printed materials for your events and marketing campaigns."
+      },
+      {
+        "id": "signaletique",
+        "title": "Rigid Supports & Signage",
+        "short": "Manufacturing of rigid supports and professional signage solutions.",
+        "long": "We manufacture and install all types of rigid supports and signage: signs, panels, totems, signage plates and interior or exterior navigation systems adapted to your event spaces."
+      },
+      {
+        "id": "branding",
+        "title": "Graphic Design & Branding",
+        "short": "Creating impactful visual identity and communication materials.",
+        "long": "Our creative team develops your complete visual identity: logo, brand guidelines, communication materials and art direction. We ensure every visual element faithfully reflects your brand's values and ambitions."
+      },
+      {
+        "id": "digital",
+        "title": "Digital Marketing",
+        "short": "Digital strategies and social media management for your events.",
+        "long": "We develop and execute comprehensive digital marketing strategies: social media management, content creation, online advertising, email marketing and performance analysis to maximize your events' visibility."
+      },
+      {
+        "id": "logistique",
+        "title": "Event Logistics",
+        "short": "Complete logistics management for seamless events.",
+        "long": "Our logistics department coordinates all operational aspects of your events: transportation, accommodation, catering, security, welcome, badge management and vendor coordination for perfect execution."
+      },
+      {
+        "id": "media",
+        "title": "Media Coverage",
+        "short": "Professional content production and media coverage.",
+        "long": "We provide complete media coverage of your events: professional photography, videography, live streaming, video editing, interviews and content production to enrich your digital presence post-event."
+      }
+    ]
+  },
+  "realisations": {
+    "title": "Our Portfolio",
+    "subtitle": "Discover some of our most remarkable projects",
+    "filters": {
+      "all": "All",
+      "conference": "Conference",
+      "stand": "Stand",
+      "gala": "Gala",
+      "corporate": "Corporate",
+      "branding": "Branding"
+    },
+    "viewProject": "View project",
+    "close": "Close"
+  },
+  "why": {
+    "title": "Why Choose Us?",
+    "subtitle": "Excellence in service of your ambitions",
+    "items": [
+      {
+        "title": "Recognized Expertise",
+        "desc": "Over 5 years of experience organizing national and international events."
+      },
+      {
+        "title": "Creative Team",
+        "desc": "Passionate professionals who transform your ideas into memorable experiences."
+      },
+      {
+        "title": "Personalized Follow-up",
+        "desc": "A dedicated contact for each project, from conception to delivery."
+      },
+      {
+        "title": "Premium Quality",
+        "desc": "Partners and service providers selected for their excellence and reliability."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "name": "Karim Benali",
+        "role": "CEO, TechCorp Algeria",
+        "text": "A² Events organized our annual conference with remarkable precision and creativity. Everything was perfect from start to finish."
+      },
+      {
+        "name": "Samira Ouali",
+        "role": "Marketing Director, Horizon Group",
+        "text": "Exemplary professionalism and attention to detail that truly makes a difference. I highly recommend their services."
+      },
+      {
+        "name": "Mohamed Cherif",
+        "role": "CEO, Innovation Hub",
+        "text": "Our exhibition stand was the most noticed at the trade show. Thank you to the entire team for their exceptional work and responsiveness."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let's Talk About Your Project",
+    "subtitle": "Together, let's transform your vision into reality",
+    "button": "Get in touch"
+  },
+  "about": {
+    "title": "About Us",
+    "story": {
+      "title": "Our Story",
+      "text1": "Founded in 2019, A² Events was born from the passion of two Algerian entrepreneurs for event excellence. Our agency was created with a clear vision: to offer high-level event services that meet international standards while remaining deeply rooted in local culture.",
+      "text2": "Over the years, we have established ourselves as a key player in the Algerian event industry, building a team of talented professionals and a reputation built on quality, creativity and reliability."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Supporting our clients in designing and delivering events that exceed their expectations, combining creativity, operational excellence and budget management."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To become the reference event agency in Algeria and the MENA region, recognized for innovation, professionalism and the ability to create unforgettable experiences."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        { "title": "Excellence", "desc": "We aim for perfection in every detail of our services." },
+        { "title": "Creativity", "desc": "Every event is an opportunity to push the boundaries of imagination." },
+        { "title": "Integrity", "desc": "Transparency and honesty guide each of our interactions." },
+        { "title": "Commitment", "desc": "We fully invest in every project as if it were our own." }
+      ]
+    },
+    "team": {
+      "title": "Our Team",
+      "members": [
+        { "name": "Amine Ait Oumeziane", "role": "Co-Founder & Creative Director" },
+        { "name": "Anis Bouzid", "role": "Co-Founder & Operations Director" },
+        { "name": "Yasmine Kadri", "role": "Communication & Branding Manager" },
+        { "name": "Sofiane Meziane", "role": "Event Project Manager" }
+      ]
+    },
+    "numbers": {
+      "title": "A² Events in Numbers",
+      "items": [
+        { "value": "50+", "label": "Events completed" },
+        { "value": "8", "label": "Services offered" },
+        { "value": "5+", "label": "Years of experience" },
+        { "value": "100%", "label": "Satisfied clients" }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to bring your projects to life",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "service": "Service concerned",
+      "selectService": "Select a service",
+      "message": "Your message",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully! We will contact you soon.",
+      "error": "An error occurred. Please try again or contact us directly."
+    },
+    "info": {
+      "phone": "+213 XX XX XX XX",
+      "email": "contact@a2events.dz",
+      "address": "Algiers, Algeria",
+      "hours": "Mon - Fri: 8:00 AM - 5:00 PM"
+    }
+  },
+  "footer": {
+    "tagline": "Event excellence at your service.",
+    "links": "Quick Links",
+    "follow": "Follow Us",
+    "rights": "All rights reserved."
+  }
+}
