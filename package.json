@@ -15,6 +15,9 @@
     "react-dom": "^18",
     "resend": "^6.12.4"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "devDependencies": {
     "@types/node": "^20.19.43",
     "@types/react": "^18",
