@@ -8,9 +8,38 @@
   },
   "hero": {
     "title": "A² Events",
-    "slogan": "Together, let's make every event a remarkable and memorable moment",
+    "slogan": "Together, let's make every event a remarkable and memorable moment.",
     "cta": "Discover our services",
     "cta2": "Contact us"
+  },
+  "home": {
+    "chat": "Chat with A²",
+    "intro": "We are a passionate team, turning your ideas into unforgettable events.",
+    "workTitle": "Work",
+    "viewCase": "View project",
+    "servicesTitle": "Services",
+    "groups": [
+      {
+        "title": "Events",
+        "desc": "From concept to execution, we orchestrate events that leave a lasting impression.",
+        "items": ["Conferences & seminars", "Galas & ceremonies", "Product launches", "Full logistics"]
+      },
+      {
+        "title": "Stands & Signage",
+        "desc": "Unique exhibition spaces that bring your brand to life.",
+        "items": ["Custom stands", "Rigid supports", "Signage", "Assembly & installation"]
+      },
+      {
+        "title": "Branding & Print",
+        "desc": "A strong visual identity, across all your materials.",
+        "items": ["Visual identity", "Brand guidelines", "Large format printing", "Communication materials"]
+      },
+      {
+        "title": "Digital & Media",
+        "desc": "A digital presence that amplifies the impact of your events.",
+        "items": ["Social media", "Media coverage", "Photo & video", "Live streaming"]
+      }
+    ]
   },
   "services": {
     "title": "Our Services",

@@ -8,9 +8,38 @@
   },
   "hero": {
     "title": "A² Events",
-    "slogan": "Ensemble, faisons de chaque événement un moment marquant et mémorable",
+    "slogan": "Ensemble, faisons de chaque événement un moment marquant et mémorable.",
     "cta": "Découvrir nos services",
     "cta2": "Nous contacter"
+  },
+  "home": {
+    "chat": "Discuter avec A²",
+    "intro": "Nous sommes une équipe passionnée, qui transforme vos idées en événements inoubliables.",
+    "workTitle": "Réalisations",
+    "viewCase": "Voir le projet",
+    "servicesTitle": "Services",
+    "groups": [
+      {
+        "title": "Événementiel",
+        "desc": "De la conception à l'exécution, nous orchestrons des événements qui marquent les esprits.",
+        "items": ["Conférences & séminaires", "Galas & cérémonies", "Lancements de produits", "Logistique complète"]
+      },
+      {
+        "title": "Stands & Signalétique",
+        "desc": "Des espaces d'exposition uniques qui donnent vie à votre marque.",
+        "items": ["Stands sur mesure", "Supports rigides", "Signalétique", "Montage & installation"]
+      },
+      {
+        "title": "Branding & Impression",
+        "desc": "Une identité visuelle forte, déclinée sur tous vos supports.",
+        "items": ["Identité visuelle", "Charte graphique", "Impression grand format", "Supports de communication"]
+      },
+      {
+        "title": "Digital & Média",
+        "desc": "Une présence digitale qui amplifie l'impact de vos événements.",
+        "items": ["Réseaux sociaux", "Couverture médiatique", "Photo & vidéo", "Streaming en direct"]
+      }
+    ]
   },
   "services": {
     "title": "Nos Services",

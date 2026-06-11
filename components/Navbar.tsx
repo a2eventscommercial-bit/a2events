@@ -33,56 +33,55 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-[#0A0A0A] shadow-lg shadow-black/50' : 'bg-transparent'
+        scrolled ? 'bg-[#0A0A0A]/95 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className={`flex items-center justify-between h-20 ${rtl ? 'flex-row-reverse' : ''}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 bg-[#CC0000] flex items-center justify-center font-bold text-white text-lg">
-              A²
-            </div>
-            <span className="hidden sm:block text-white font-bold text-lg tracking-wide">
-              A² Events
+            <span className="text-white font-black text-xl tracking-tight">
+              A<sup className="text-[#CC0000]">²</sup> Events
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className={`hidden lg:flex items-center gap-8 ${rtl ? 'flex-row-reverse' : ''}`}>
+          <nav className={`hidden lg:flex items-center gap-10 ${rtl ? 'flex-row-reverse' : ''}`}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200 hover:text-[#CC0000] uppercase tracking-widest"
+                className="text-gray-400 hover:text-white text-[13px] font-medium transition-colors duration-200"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Right section */}
-          <div className="flex items-center gap-4">
-            {/* Language switcher */}
-            <div className="flex items-center gap-1">
+          {/* Right: langues + bouton chat */}
+          <div className={`flex items-center gap-5 ${rtl ? 'flex-row-reverse' : ''}`}>
+            <div className="hidden sm:flex items-center gap-1">
               {langs.map((lang, i) => (
                 <span key={lang.code} className="flex items-center">
                   <button
                     onClick={() => setLocale(lang.code)}
-                    className={`text-xs font-semibold tracking-widest px-1 py-0.5 transition-colors duration-200 ${
-                      locale === lang.code
-                        ? 'text-[#CC0000]'
-                        : 'text-gray-400 hover:text-white'
+                    className={`text-[11px] font-semibold tracking-widest px-1 transition-colors duration-200 ${
+                      locale === lang.code ? 'text-[#CC0000]' : 'text-gray-500 hover:text-white'
                     }`}
                   >
                     {lang.label}
                   </button>
-                  {i < langs.length - 1 && (
-                    <span className="text-gray-600 text-xs">|</span>
-                  )}
+                  {i < langs.length - 1 && <span className="text-gray-700 text-[11px]">|</span>}
                 </span>
               ))}
             </div>
+
+            <Link
+              href="/contact"
+              className="hidden lg:inline-block border border-neutral-700 text-white text-[12px] px-5 py-2.5 hover:bg-[#CC0000] hover:border-[#CC0000] transition-all duration-300"
+            >
+              {t.home.chat}
+            </Link>
 
             {/* Mobile menu button */}
             <button
@@ -102,21 +101,36 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden bg-[#0A0A0A] border-t border-neutral-800 overflow-hidden transition-all duration-300 ${
-          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden bg-[#0A0A0A] border-t border-neutral-900 overflow-hidden transition-all duration-300 ${
+          menuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <nav className="px-4 py-4 flex flex-col gap-4">
+        <nav className={`px-6 py-6 flex flex-col gap-5 ${rtl ? 'items-end' : ''}`}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-gray-300 hover:text-[#CC0000] text-sm font-medium uppercase tracking-widest transition-colors"
+              className="text-gray-300 hover:text-[#CC0000] text-sm font-medium transition-colors"
             >
               {link.label}
             </Link>
           ))}
+          <div className="flex items-center gap-2 pt-2">
+            {langs.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => setLocale(lang.code)}
+                className={`text-xs font-semibold tracking-widest px-2 py-1 border transition-colors ${
+                  locale === lang.code
+                    ? 'text-[#CC0000] border-[#CC0000]'
+                    : 'text-gray-500 border-neutral-800'
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
         </nav>
       </div>
     </header>
