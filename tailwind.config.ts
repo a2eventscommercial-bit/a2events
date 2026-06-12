@@ -18,7 +18,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Noto Sans Arabic", "sans-serif"],
+        sans: ["var(--font-montserrat)", "Noto Sans Arabic", "sans-serif"],
         arabic: ["Noto Sans Arabic", "sans-serif"],
       },
       animation: {
