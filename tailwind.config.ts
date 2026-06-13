@@ -18,8 +18,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-montserrat)", "Noto Sans Arabic", "sans-serif"],
-        arabic: ["Noto Sans Arabic", "sans-serif"],
+        sans: ["var(--font-montserrat)", "var(--font-arabic)", "sans-serif"],
+        arabic: ["var(--font-arabic)", "sans-serif"],
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",
