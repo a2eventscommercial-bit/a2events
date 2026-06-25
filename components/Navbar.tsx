@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useTranslations } from '@/lib/useTranslations'
@@ -44,11 +45,9 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0 ps-2">
-          <span className="text-white font-black text-lg tracking-tight">
-            A<sup className="text-[#CC0000]">²</sup>
-            <span className="hidden sm:inline"> Events</span>
-          </span>
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 ps-1">
+          <Image src="/logo.svg" alt="A² Events" width={36} height={36} className="h-9 w-9" priority />
+          <span className="text-white font-black text-lg tracking-tight hidden sm:inline">A² Events</span>
         </Link>
 
         {/* Desktop Nav — glass pill with fluid sliding indicator */}

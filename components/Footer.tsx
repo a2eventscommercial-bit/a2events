@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTranslations } from '@/lib/useTranslations'
 
 export default function Footer() {
@@ -26,10 +27,11 @@ export default function Footer() {
         <div className={`flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 ${rtl ? 'lg:flex-row-reverse text-right' : ''}`}>
           {/* Brand */}
           <div>
-            <Link href="/" className="text-white font-black text-xl tracking-tight">
-              A<sup className="text-[#CC0000]">²</sup> Events
+            <Link href="/" className={`flex items-center gap-2.5 ${rtl ? 'flex-row-reverse justify-end' : ''}`}>
+              <Image src="/logo.svg" alt="A² Events" width={40} height={40} className="h-10 w-10" />
+              <span className="text-white font-black text-xl tracking-tight">A² Events</span>
             </Link>
-            <p className="text-gray-600 text-sm mt-2">{t.footer.tagline}</p>
+            <p className="text-gray-600 text-sm mt-3">{t.footer.tagline}</p>
           </div>
 
           {/* Nav */}
