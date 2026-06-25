@@ -65,12 +65,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* DROITE — liste de services défilante avec flèche */}
+          {/* DROITE — liste de services défilante avec flèche (desktop uniquement) */}
           <motion.div
             initial={{ opacity: 0, x: rtl ? -30 : 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5"
+            className="hidden lg:block lg:col-span-5"
           >
             <p className="text-gray-500 text-[11px] uppercase tracking-[0.3em] mb-4">{t.home.servicesTitle}</p>
             <div className="relative overflow-hidden" style={{ height: itemH * 5 }}>
@@ -129,7 +129,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 w-full hidden lg:block"
       >
         <p className="text-center text-gray-600 text-[11px] uppercase tracking-[0.3em] mb-6">
           {t.home.trust.title}
