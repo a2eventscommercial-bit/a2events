@@ -1,12 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
 import SectionReveal from '@/components/SectionReveal'
 import TextReveal from '@/components/TextReveal'
 import Marquee from '@/components/Marquee'
+import Hero from '@/components/Hero'
 import WorkCarousel from '@/components/WorkCarousel'
 import Partners from '@/components/Partners'
 import PinnedReveal from '@/components/PinnedReveal'
@@ -26,89 +24,11 @@ const marqueeItems = ['Événementiel', 'Stands', 'Branding', 'Conférences', 'G
 
 export default function HomePage() {
   const { t, rtl } = useTranslations()
-  const heroRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
-  const heroImgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const heroTextY = useTransform(scrollYProgress, [0, 1], ['0%', '120%'])
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   return (
     <div className={rtl ? 'font-arabic' : ''} dir={rtl ? 'rtl' : 'ltr'}>
-      {/* ============ HERO — parallax + blobs + texte révélé ============ */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
-        {/* Image avec parallax */}
-        <motion.div style={{ y: heroImgY }} className="absolute inset-0 -top-[10%] h-[120%]">
-          <Image
-            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80"
-            alt="Événement A² Events"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-[#0A0A0A]/65" />
-
-        {/* Blobs rouges animés */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#CC0000]/30 rounded-full blur-3xl animate-blob-slow" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#CC0000]/20 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '6s' }} />
-
-        {/* Contenu */}
-        <motion.div style={{ y: heroTextY, opacity: heroOpacity }} className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-[#CC0000] text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-6"
-          >
-            Agence Événementielle
-          </motion.p>
-
-          <TextReveal
-            as="h1"
-            text={t.hero.slogan}
-            className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.7 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              href="/contact"
-              className="group relative overflow-hidden bg-[#CC0000] text-white px-10 py-4 text-sm uppercase tracking-[0.25em] font-semibold"
-            >
-              <span className="relative z-10">{t.hero.cta2}</span>
-              <span className="absolute inset-0 bg-[#0A0A0A] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="absolute inset-0 z-10 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-white">
-                {t.hero.cta2}
-              </span>
-            </Link>
-            <Link
-              href="/services"
-              className="border border-white/40 text-white px-10 py-4 text-sm uppercase tracking-[0.25em] font-semibold hover:border-white hover:bg-white/10 transition-all duration-300"
-            >
-              {t.hero.cta}
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-        >
-          <span className="text-gray-400 text-[10px] uppercase tracking-[0.4em]">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8 }}
-            className="w-px h-10 bg-gradient-to-b from-[#CC0000] to-transparent"
-          />
-        </motion.div>
-      </section>
+      {/* ============ HERO — style Magnific (texte + liste services + logos) ============ */}
+      <Hero />
 
       {/* ============ MARQUEE défilant ============ */}
       <Marquee items={marqueeItems} />
