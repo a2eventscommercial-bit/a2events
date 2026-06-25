@@ -75,7 +75,6 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block lg:col-span-5"
           >
-            <p className="text-gray-500 text-[11px] uppercase tracking-[0.3em] mb-4">{t.home.servicesTitle}</p>
             <div className="relative overflow-hidden" style={{ height: itemH * 5 }}>
               {/* ligne de focus centrale */}
               <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-14 border-y border-white/10 pointer-events-none" />
@@ -99,9 +98,6 @@ export default function Hero() {
                       href="/services"
                       className={`flex items-center gap-4 w-full group ${rtl ? 'flex-row-reverse' : ''}`}
                     >
-                      <span className={`text-[11px] font-mono w-6 flex-shrink-0 ${isActive ? 'text-[#CC0000]' : 'text-gray-600'}`}>
-                        0{i + 1}
-                      </span>
                       <span
                         className={`font-bold transition-all duration-300 ${
                           isActive ? 'text-white text-xl sm:text-2xl' : 'text-gray-400 text-lg'
