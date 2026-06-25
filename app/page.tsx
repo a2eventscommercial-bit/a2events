@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import SectionReveal from '@/components/SectionReveal'
 import TextReveal from '@/components/TextReveal'
 import Marquee from '@/components/Marquee'
-import TiltCard from '@/components/TiltCard'
+import WorkCarousel from '@/components/WorkCarousel'
 import Partners from '@/components/Partners'
 import PinnedReveal from '@/components/PinnedReveal'
 import { useTranslations } from '@/lib/useTranslations'
@@ -144,38 +144,15 @@ export default function HomePage() {
                 <p className="text-[#CC0000] text-sm font-semibold uppercase tracking-[0.3em] mb-3">Portfolio</p>
                 <TextReveal text={t.realisations.title} className="text-3xl sm:text-5xl font-black text-[#0A0A0A]" />
               </div>
-              <Link href="/realisations" className="hidden sm:inline text-gray-500 hover:text-[#CC0000] text-sm font-medium transition-colors whitespace-nowrap">
-                {t.realisations.viewProject} →
-              </Link>
+              <p className="hidden sm:block text-gray-400 text-sm max-w-xs">
+                {t.realisations.subtitle}
+              </p>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: 1000 }}>
-            {workProjects.map((project, i) => (
-              <SectionReveal key={project.id} delay={(i % 3) * 0.12}>
-                <TiltCard>
-                  <Link href="/realisations" className="block group">
-                    <div className="relative overflow-hidden aspect-video bg-white shadow-md" style={{ transform: 'translateZ(40px)' }}>
-                      <Image
-                        src={project.img}
-                        alt={project.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-                      <div className={`absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-400 ${rtl ? 'text-right' : ''}`}>
-                        <span className="text-[#CC0000] bg-white/95 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em]">
-                          {project.type}
-                        </span>
-                        <h3 className="text-white text-lg font-bold mt-2">{project.name}</h3>
-                      </div>
-                    </div>
-                  </Link>
-                </TiltCard>
-              </SectionReveal>
-            ))}
-          </div>
+          <SectionReveal>
+            <WorkCarousel projects={workProjects} rtl={rtl} viewLabel={t.realisations.viewProject} />
+          </SectionReveal>
         </div>
       </section>
 
