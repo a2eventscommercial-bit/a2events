@@ -96,8 +96,19 @@ export default function Hero() {
                   >
                     <Link
                       href="/services"
-                      className={`flex items-center gap-4 w-full group ${rtl ? 'flex-row-reverse' : ''}`}
+                      className={`flex items-center gap-3 w-full group ${rtl ? 'flex-row-reverse' : ''}`}
                     >
+                      <span className="w-6 flex-shrink-0 flex items-center justify-center">
+                        {isActive && (
+                          <motion.span
+                            initial={{ opacity: 0, scale: 0.4 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="text-[#CC0000] text-sm leading-none"
+                          >
+                            {rtl ? '◀' : '▶'}
+                          </motion.span>
+                        )}
+                      </span>
                       <span
                         className={`font-bold transition-all duration-300 ${
                           isActive ? 'text-white text-xl sm:text-2xl' : 'text-gray-400 text-lg'
@@ -105,15 +116,6 @@ export default function Hero() {
                       >
                         {service.title}
                       </span>
-                      {isActive && (
-                        <motion.span
-                          initial={{ opacity: 0, x: rtl ? 10 : -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          className={`text-[#CC0000] text-2xl ${rtl ? 'mr-auto' : 'ml-auto'}`}
-                        >
-                          {rtl ? '←' : '→'}
-                        </motion.span>
-                      )}
                     </Link>
                   </motion.div>
                 )
