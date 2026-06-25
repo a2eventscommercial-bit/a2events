@@ -94,8 +94,11 @@ export default function RealisationsPage() {
     <div className={`min-h-screen bg-[#F2F2F2] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
       <PageHeader eyebrow="Portfolio" title={t.realisations.title} subtitle={t.realisations.subtitle} rtl={rtl} />
 
+      {/* Lèvre arrondie qui chevauche l'en-tête sombre (comme les autres pages) */}
+      <div className="relative z-10 -mt-12 h-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-[#F2F2F2] shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.5)]" />
+
       {/* Filter Bar */}
-      <div className="sticky top-24 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm">
+      <div className="sticky top-24 z-30 bg-[#F2F2F2]/90 backdrop-blur-md border-b border-gray-200 py-4">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`flex items-center gap-2 overflow-x-auto pb-1 ${rtl ? 'flex-row-reverse' : ''}`}>
             {filterKeys.map((key) => (
