@@ -14,12 +14,12 @@
   },
   "home": {
     "chat": "Chat with A²",
-    "intro": "We are a passionate team, turning your ideas into unforgettable events.",
+    "intro": "A² Events, your strategic partner for designing and delivering high-impact professional events.",
     "workTitle": "Work",
     "viewCase": "View project",
     "servicesTitle": "Services",
     "trust": {
-      "title": "Trusted by leading brands for their events",
+      "title": "Trusted by leading companies and institutions",
       "subtitle": "50+ events delivered across Algeria"
     },
     "manifesto": {
@@ -51,7 +51,7 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Complete expertise for all your event needs",
+    "subtitle": "Complete expertise covering all your event and communication needs.",
     "items": [
       {
         "id": "conferences",
@@ -105,7 +105,7 @@
   },
   "realisations": {
     "title": "Our Portfolio",
-    "subtitle": "Discover some of our most remarkable projects",
+    "subtitle": "Large-scale projects that reflect our craftsmanship and high standards.",
     "filters": {
       "all": "All",
       "conference": "Conference",
@@ -119,7 +119,7 @@
   },
   "why": {
     "title": "Why Choose Us?",
-    "subtitle": "Excellence in service of your ambitions",
+    "subtitle": "Expertise, creativity and reliability combined to serve your ambitions.",
     "items": [
       {
         "title": "Recognized Expertise",
@@ -168,8 +168,8 @@
     "title": "About Us",
     "story": {
       "title": "Our Story",
-      "text1": "Founded in 2019, A² Events was born from the passion of two Algerian entrepreneurs for event excellence. Our agency was created with a clear vision: to offer high-level event services that meet international standards while remaining deeply rooted in local culture.",
-      "text2": "Over the years, we have established ourselves as a key player in the Algerian event industry, building a team of talented professionals and a reputation built on quality, creativity and reliability."
+      "text1": "Founded in 2019, A² Events is an Algerian event agency born from a passion for excellence. We support companies and institutions in designing and delivering events that meet international standards while staying rooted in local culture.",
+      "text2": "Over the years, we have established ourselves as a strategic partner of reference in the Algerian event industry, building a team of talented professionals and a reputation founded on quality, creativity and reliability."
     },
     "mission": {
       "title": "Mission",
@@ -209,7 +209,7 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "We are here to bring your projects to life",
+    "subtitle": "Let's talk about your project — together, let's turn your vision into reality.",
     "form": {
       "name": "Full name",
       "email": "Email address",

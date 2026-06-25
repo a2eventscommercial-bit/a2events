@@ -14,12 +14,12 @@
   },
   "home": {
     "chat": "Discuter avec A²",
-    "intro": "Nous sommes une équipe passionnée, qui transforme vos idées en événements inoubliables.",
+    "intro": "A² Events, votre partenaire stratégique pour la conception et la réalisation d'événements professionnels à fort impact.",
     "workTitle": "Réalisations",
     "viewCase": "Voir le projet",
     "servicesTitle": "Services",
     "trust": {
-      "title": "Ils nous font confiance pour leurs événements",
+      "title": "Entreprises et institutions nous font confiance",
       "subtitle": "+ de 50 événements réalisés à travers l'Algérie"
     },
     "manifesto": {
@@ -51,7 +51,7 @@
   },
   "services": {
     "title": "Nos Services",
-    "subtitle": "Une expertise complète pour tous vos besoins événementiels",
+    "subtitle": "Une expertise complète couvrant tous vos besoins événementiels et de communication.",
     "items": [
       {
         "id": "conferences",
@@ -105,7 +105,7 @@
   },
   "realisations": {
     "title": "Nos Réalisations",
-    "subtitle": "Découvrez quelques-uns de nos projets les plus marquants",
+    "subtitle": "Des projets d'envergure qui témoignent de notre savoir-faire et de notre exigence.",
     "filters": {
       "all": "Tous",
       "conference": "Conférence",
@@ -119,7 +119,7 @@
   },
   "why": {
     "title": "Pourquoi nous choisir ?",
-    "subtitle": "L'excellence au service de vos ambitions",
+    "subtitle": "L'expertise, la créativité et la fiabilité réunies au service de vos ambitions.",
     "items": [
       {
         "title": "Expertise Reconnue",
@@ -168,8 +168,8 @@
     "title": "À Propos de Nous",
     "story": {
       "title": "Notre Histoire",
-      "text1": "Fondée en 2019, A² Events est née de la passion de deux entrepreneurs algériens pour l'excellence événementielle. Notre agence a été créée avec une vision claire : offrir des prestations événementielles de haut niveau qui répondent aux standards internationaux tout en restant profondément ancrées dans la culture locale.",
-      "text2": "Au fil des années, nous avons su nous imposer comme un acteur incontournable du secteur événementiel en Algérie, en bâtissant une équipe de professionnels talentueux et une réputation fondée sur la qualité, la créativité et la fiabilité."
+      "text1": "Fondée en 2019, A² Events est une agence événementielle algérienne née de la passion de l'excellence. Nous accompagnons entreprises et institutions dans la conception et la réalisation d'événements qui répondent aux standards internationaux, tout en restant ancrés dans la culture locale.",
+      "text2": "Au fil des années, nous nous sommes imposés comme un partenaire stratégique de référence du secteur événementiel en Algérie, en bâtissant une équipe de professionnels talentueux et une réputation fondée sur la qualité, la créativité et la fiabilité."
     },
     "mission": {
       "title": "Mission",
@@ -209,7 +209,7 @@
   },
   "contact": {
     "title": "Contactez-Nous",
-    "subtitle": "Nous sommes à votre écoute pour donner vie à vos projets",
+    "subtitle": "Parlons de votre projet — transformons ensemble votre vision en réalité.",
     "form": {
       "name": "Nom complet",
       "email": "Adresse email",
