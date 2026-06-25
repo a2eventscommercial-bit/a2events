@@ -26,8 +26,24 @@ const config: Config = {
         "fade-in": "fadeIn 0.8s ease-out forwards",
         float: "float 6s ease-in-out infinite",
         pulse2: "pulse2 3s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
+        "marquee-reverse": "marquee-reverse 28s linear infinite",
+        "blob-slow": "blob 18s ease-in-out infinite",
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        blob: {
+          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(40px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-30px, 30px) scale(0.95)" },
+        },
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },

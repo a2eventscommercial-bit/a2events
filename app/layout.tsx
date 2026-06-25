@@ -5,6 +5,7 @@ import { I18nProvider } from '@/lib/useTranslations'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import ScrollProgress from '@/components/ScrollProgress'
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', weight: ['300', '400', '500', '600', '700', '800', '900'] })
 const cairo = Cairo({ subsets: ['arabic'], variable: '--font-arabic', weight: ['300', '400', '500', '600', '700', '800', '900'] })
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={`${montserrat.variable} ${cairo.variable} font-sans antialiased bg-neutral-950 text-white`}>
         <I18nProvider>
+          <ScrollProgress />
           <Navbar />
           <main>{children}</main>
           <Footer />

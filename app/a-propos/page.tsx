@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import SectionReveal from '@/components/SectionReveal'
+import Counter from '@/components/Counter'
 import { useTranslations } from '@/lib/useTranslations'
 import Link from 'next/link'
 
@@ -89,9 +90,7 @@ export default function AboutPage() {
             {t.about.numbers.items.map((item, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="text-center">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#CC0000] mb-2">
-                    {item.value}
-                  </div>
+                  <Counter value={item.value} className="block text-4xl sm:text-5xl lg:text-6xl font-black text-[#CC0000] mb-2" />
                   <p className="text-gray-400 text-sm uppercase tracking-widest">{item.label}</p>
                 </div>
               </SectionReveal>
