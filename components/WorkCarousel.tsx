@@ -44,8 +44,11 @@ export default function WorkCarousel({ projects, rtl = false, viewLabel }: Props
     prevActive.current = active
   }, [active])
 
-  const cardW = Math.min(containerW * 0.5, 560)
-  const cardH = (cardW * 9) / 16
+  const isMobile = containerW < 640
+  // mobile : 1 carte pleine largeur (format ~4:3, comme les cartes services)
+  // desktop : coverflow (carte centrale + voisines), format 16:9
+  const cardW = isMobile ? containerW : Math.min(containerW * 0.5, 560)
+  const cardH = isMobile ? (cardW * 3) / 4 : (cardW * 9) / 16
 
   // distance circulaire (boucle infinie)
   const circ = (raw: number) => {
@@ -56,9 +59,13 @@ export default function WorkCarousel({ projects, rtl = false, viewLabel }: Props
 
   const go = (d: 1 | -1) => setActive((a) => (a + d + n) % n)
 
-  // opacité selon la distance
-  const opacityFor = (abs: number) => (abs === 0 ? 1 : abs === 1 ? 0.5 : abs === 2 ? 0.15 : 0)
-  const scaleFor = (abs: number) => (abs === 0 ? 1 : abs === 1 ? 0.84 : abs === 2 ? 0.7 : 0.62)
+  // opacité selon la distance (mobile : seule la carte active est visible)
+  const opacityFor = (abs: number) =>
+    isMobile ? (abs === 0 ? 1 : 0) : abs === 0 ? 1 : abs === 1 ? 0.5 : abs === 2 ? 0.15 : 0
+  const scaleFor = (abs: number) =>
+    isMobile ? (abs === 0 ? 1 : 0.9) : abs === 0 ? 1 : abs === 1 ? 0.84 : abs === 2 ? 0.7 : 0.62
+  // écartement : mobile pousse les voisines hors écran, desktop les laisse dépasser
+  const spread = isMobile ? 1.05 : 0.62
 
   // swipe tactile / souris
   const startX = useRef<number | null>(null)
@@ -94,7 +101,7 @@ export default function WorkCarousel({ projects, rtl = false, viewLabel }: Props
               style={{ width: cardW }}
               initial={false}
               animate={{
-                x: delta * cardW * 0.62 - cardW / 2,
+                x: delta * cardW * spread - cardW / 2,
                 scale: scaleFor(abs),
                 opacity: opacityFor(abs),
                 zIndex: 20 - abs,
