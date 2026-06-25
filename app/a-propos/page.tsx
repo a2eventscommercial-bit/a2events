@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import SectionReveal from '@/components/SectionReveal'
 import Counter from '@/components/Counter'
+import PageHeader from '@/components/PageHeader'
 import { useTranslations } from '@/lib/useTranslations'
 import Link from 'next/link'
 
@@ -21,21 +21,10 @@ export default function AboutPage() {
 
   return (
     <div className={`min-h-screen bg-[#0A0A0A] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
-      {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(204,0,0,0.12)_0%,transparent_60%)]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-[#CC0000] text-sm font-semibold uppercase tracking-[0.3em] mb-4">Notre histoire</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6">{t.about.title}</h1>
-            <div className="w-20 h-0.5 bg-[#CC0000] mx-auto" />
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader eyebrow="Notre histoire" title={t.about.title} subtitle={t.about.story.title} rtl={rtl} />
 
-      {/* Story */}
-      <section className="py-20 section-light">
+      {/* Story — panneau clair arrondi qui chevauche */}
+      <section className="relative z-10 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-[#F2F2F2] pt-24 pb-20 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.5)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${rtl ? 'lg:grid-flow-dense' : ''}`}>
             <SectionReveal direction={rtl ? 'right' : 'left'}>

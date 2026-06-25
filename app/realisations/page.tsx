@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import PageHeader from '@/components/PageHeader'
 import { useTranslations } from '@/lib/useTranslations'
 
 const projects = [
@@ -91,19 +92,10 @@ export default function RealisationsPage() {
 
   return (
     <div className={`min-h-screen bg-[#F2F2F2] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
-      {/* Header — bandeau sombre court */}
-      <section className="relative pt-40 pb-20 bg-[#0A0A0A]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-[#CC0000] text-sm font-semibold uppercase tracking-[0.4em] mb-4">Portfolio</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6">{t.realisations.title}</h1>
-            <p className="text-gray-400 text-lg max-w-2xl">{t.realisations.subtitle}</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader eyebrow="Portfolio" title={t.realisations.title} subtitle={t.realisations.subtitle} rtl={rtl} />
 
       {/* Filter Bar */}
-      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm">
+      <div className="sticky top-24 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`flex items-center gap-2 overflow-x-auto pb-1 ${rtl ? 'flex-row-reverse' : ''}`}>
             {filterKeys.map((key) => (
@@ -136,7 +128,7 @@ export default function RealisationsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.3 }}
-                  className="group cursor-pointer bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+                  className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   onClick={() => { setSelectedProject(project); setActiveImage(0) }}
                 >
                   <div className="relative overflow-hidden aspect-video">
