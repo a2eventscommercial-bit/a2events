@@ -18,6 +18,14 @@
     "workTitle": "Work",
     "viewCase": "View project",
     "servicesTitle": "Services",
+    "trust": {
+      "title": "Trusted by leading brands for their events",
+      "subtitle": "50+ events delivered across Algeria"
+    },
+    "manifesto": {
+      "title": "Our approach",
+      "lines": ["Every detail matters.", "Every emotion is designed.", "Every event, a signature."]
+    },
     "groups": [
       {
         "title": "Events",

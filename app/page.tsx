@@ -8,7 +8,8 @@ import SectionReveal from '@/components/SectionReveal'
 import TextReveal from '@/components/TextReveal'
 import Marquee from '@/components/Marquee'
 import TiltCard from '@/components/TiltCard'
-import SectionDivider from '@/components/SectionDivider'
+import Partners from '@/components/Partners'
+import PinnedReveal from '@/components/PinnedReveal'
 import { useTranslations } from '@/lib/useTranslations'
 
 const workProjects = [
@@ -113,7 +114,7 @@ export default function HomePage() {
       <Marquee items={marqueeItems} />
 
       {/* ============ INTRO — fond blanc, texte révélé ============ */}
-      <section className="bg-white py-28">
+      <section className="bg-white pt-28 pb-16">
         <div className="max-w-4xl mx-auto px-6">
           <TextReveal
             as="p"
@@ -123,10 +124,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SectionDivider topColor="#FFFFFF" bottomColor="#F2F2F2" variant="wave" />
+      {/* ============ PARTENAIRES — grille de logos (style Terminal) ============ */}
+      <Partners rtl={rtl} title={t.home.trust.title} subtitle={t.home.trust.subtitle} />
 
-      {/* ============ WORK — fond gris, cartes tilt 3D ============ */}
-      <section className="bg-[#F2F2F2] py-28">
+      {/* ============ MANIFESTE — section épinglée au scroll (style composites) ============ */}
+      <PinnedReveal
+        title={t.home.manifesto.title}
+        lines={t.home.manifesto.lines}
+        image="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80"
+        rtl={rtl}
+      />
+
+      {/* ============ WORK — fond gris, cartes tilt 3D (panneau arrondi qui chevauche) ============ */}
+      <section className="relative z-10 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-[#F2F2F2] pt-28 pb-28 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.5)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionReveal>
             <div className={`flex items-end justify-between mb-14 ${rtl ? 'flex-row-reverse' : ''}`}>
@@ -169,10 +179,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SectionDivider topColor="#F2F2F2" bottomColor="#FFFFFF" variant="curve" />
-
-      {/* ============ SERVICES — cartes inversées au survol ============ */}
-      <section className="bg-white py-28">
+      {/* ============ SERVICES — panneau blanc arrondi qui chevauche le gris ============ */}
+      <section className="relative z-20 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-white pt-28 pb-28 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.15)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionReveal>
             <div className="text-center mb-16">
@@ -216,11 +224,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ MARQUEE inversé clair ============ */}
-      <Marquee items={marqueeItems} reverse light />
-
-      {/* ============ CTA FINAL — bannière rouge ============ */}
-      <section className="relative py-32 overflow-hidden bg-[#CC0000]">
+      {/* ============ CTA FINAL — panneau rouge arrondi qui chevauche ============ */}
+      <section className="relative z-30 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] py-32 overflow-hidden bg-[#CC0000]">
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob-slow" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-black/10 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '5s' }} />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

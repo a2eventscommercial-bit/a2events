@@ -18,6 +18,14 @@
     "workTitle": "Réalisations",
     "viewCase": "Voir le projet",
     "servicesTitle": "Services",
+    "trust": {
+      "title": "Ils nous font confiance pour leurs événements",
+      "subtitle": "+ de 50 événements réalisés à travers l'Algérie"
+    },
+    "manifesto": {
+      "title": "Notre approche",
+      "lines": ["Chaque détail compte.", "Chaque émotion est pensée.", "Chaque événement, une signature."]
+    },
     "groups": [
       {
         "title": "Événementiel",
