@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     description: 'Ensemble, faisons de chaque événement un moment marquant et mémorable.',
     type: 'website',
     locale: 'fr_DZ',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'A² Events' }],
   },
 }
 
