@@ -46,9 +46,12 @@ export default function Hero() {
             <p className="text-[#CC0000] text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-6">
               Agence Événementielle
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight mb-8">
-              {t.hero.slogan}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
+              {t.hero.headline}
             </h1>
+            <p className="text-gray-300 text-lg sm:text-xl font-light leading-relaxed max-w-xl mb-8">
+              {t.hero.slogan}
+            </p>
             <div className={`flex flex-col sm:flex-row gap-4 ${rtl ? 'sm:flex-row-reverse sm:justify-end' : ''}`}>
               <Link
                 href="/contact"
