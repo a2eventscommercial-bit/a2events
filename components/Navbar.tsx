@@ -53,7 +53,7 @@ export default function Navbar() {
             height={36}
             className="h-9 w-9"
             priority
-            style={{ filter: 'drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.55))' }}
+            style={{ filter: 'drop-shadow(0 0 1.5px rgba(255,255,255,0.58)) drop-shadow(0 0 4px rgba(255,255,255,0.36))' }}
           />
           <span className="text-white font-black text-lg tracking-tight hidden sm:inline">A² Events</span>
         </Link>
