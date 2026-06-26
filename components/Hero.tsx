@@ -2,10 +2,24 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from '@/lib/useTranslations'
 
 const heroLogos = ['HORIZON', 'TECHCORP', 'SAFEX', 'CEVITAL', 'CONDOR', 'SONATRACH']
+
+// Photo de fond par service (même ordre que t.services.items).
+// Remplace ces URLs par tes vraies photos quand tu les envoies.
+const serviceImages = [
+  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80', // conférences
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80', // stands d'expositions
+  'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1920&q=80', // impression & communication
+  'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80', // supports & signalétique
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80', // branding
+  'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80', // marketing digital
+  'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80', // logistique
+  'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80', // couverture médiatique
+]
 
 export default function Hero() {
   const { t, rtl } = useTranslations()
@@ -29,6 +43,32 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0A0A0A] pt-28 pb-10">
+      {/* photo de fond qui change à chaque service (crossfade) */}
+      <div className="absolute inset-0">
+        <AnimatePresence>
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={serviceImages[active] ?? serviceImages[0]}
+              alt=""
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      {/* filtre noir + touche rouge par-dessus la photo */}
+      <div className="absolute inset-0 bg-[#0A0A0A]/82" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/70" />
+
       {/* halos rouges animés */}
       <div className="absolute top-1/4 -left-32 w-[28rem] h-[28rem] bg-[#CC0000]/25 rounded-full blur-3xl animate-blob-slow" />
       <div className="absolute bottom-10 -right-32 w-[28rem] h-[28rem] bg-[#CC0000]/15 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '6s' }} />
