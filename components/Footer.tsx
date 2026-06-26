@@ -28,14 +28,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className={`flex items-center gap-2.5 ${rtl ? 'flex-row-reverse justify-end' : ''}`}>
-              <Image
-                src="/logo.svg"
-                alt="A² Events"
-                width={40}
-                height={40}
-                className="h-10 w-10"
-                style={{ filter: 'drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 0 0.5px #fff)' }}
-              />
+              <Image src="/logos/logo-white-transparent.svg" alt="A² Events" width={40} height={40} className="h-10 w-10" />
               <span className="text-white font-black text-xl tracking-tight">A² Events</span>
             </Link>
             <p className="text-gray-600 text-sm mt-3">{t.footer.tagline}</p>
