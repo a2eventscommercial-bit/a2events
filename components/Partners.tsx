@@ -15,6 +15,17 @@ const partners = [
   { src: '/clients/client-1.webp', alt: 'Client A² Events' },
   { src: '/clients/client-2.webp', alt: 'Client A² Events' },
   { src: '/clients/client-3.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-saidal.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-icone.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-laasm.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-bigdis.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-biogalinic.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-dermagor.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-guerbet.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-item.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-klosterfreau.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-onda.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-srh.svg', alt: 'Client A² Events' },
 ]
 
 export default function Partners({ rtl = false, title, subtitle }: Props) {
@@ -28,17 +39,17 @@ export default function Partners({ rtl = false, title, subtitle }: Props) {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-10 sm:gap-x-20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12 items-center">
           {partners.map((logo, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative h-20 w-40 sm:h-24 sm:w-48 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
+              className="relative h-16 sm:h-20 mx-auto w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
-              <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="200px" />
+              <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="240px" />
             </motion.div>
           ))}
         </div>
