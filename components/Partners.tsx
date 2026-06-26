@@ -16,8 +16,6 @@ const partners = [
   { src: '/clients/client-2.webp', alt: 'Client A² Events' },
   { src: '/clients/client-3.svg', alt: 'Client A² Events' },
   { src: '/clients/client-saidal.svg', alt: 'Client A² Events' },
-  { src: '/clients/client-icone.svg', alt: 'Client A² Events' },
-  { src: '/clients/client-laasm.svg', alt: 'Client A² Events' },
   { src: '/clients/client-bigdis.svg', alt: 'Client A² Events' },
   { src: '/clients/client-biogalinic.svg', alt: 'Client A² Events' },
   { src: '/clients/client-dermagor.svg', alt: 'Client A² Events' },
