@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import TextReveal from './TextReveal'
 
@@ -9,10 +10,11 @@ interface Props {
   subtitle: string
 }
 
-// Logos clients placeholder (texte stylisé) — remplace par tes vrais logos quand prêts.
+// Logos clients réels (ajoute-en d'autres ici quand tu les as)
 const partners = [
-  'HORIZON', 'TECHCORP', 'SAFEX', 'INNOVA', 'SONATRACH', 'DJEZZY',
-  'CEVITAL', 'CONDOR', 'OOREDOO', 'BIOPHARM', 'AADL', 'MOBILIS',
+  { src: '/clients/client-1.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-2.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-3.svg', alt: 'Client A² Events' },
 ]
 
 export default function Partners({ rtl = false, title, subtitle }: Props) {
@@ -26,25 +28,22 @@ export default function Partners({ rtl = false, title, subtitle }: Props) {
           />
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-gray-200">
-          {partners.map((name, i) => (
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-10 sm:gap-x-20">
+          {partners.map((logo, i) => (
             <motion.div
-              key={name}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.08 + Math.floor(i / 4) * 0.05 }}
-              className="group relative flex items-center justify-center h-28 sm:h-32 bg-white cursor-default overflow-hidden"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative h-20 w-40 sm:h-24 sm:w-48 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
-              <span className="absolute inset-0 bg-[#CC0000] translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-out" />
-              <span className="relative z-10 text-lg sm:text-xl font-black tracking-tight text-gray-300 group-hover:text-white transition-colors duration-400">
-                {name}
-              </span>
+              <Image src={logo.src} alt={logo.alt} fill className="object-contain" sizes="200px" />
             </motion.div>
           ))}
         </div>
 
-        <p className={`text-center text-gray-400 text-sm mt-10 ${rtl ? 'font-arabic' : ''}`}>
+        <p className={`text-center text-gray-400 text-sm mt-14 ${rtl ? 'font-arabic' : ''}`}>
           {subtitle}
         </p>
       </div>
