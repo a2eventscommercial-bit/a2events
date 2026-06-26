@@ -12,8 +12,8 @@ interface Props {
 
 // Logos clients réels (ajoute-en d'autres ici quand tu les as)
 const partners = [
-  { src: '/clients/client-1.svg', alt: 'Client A² Events' },
-  { src: '/clients/client-2.svg', alt: 'Client A² Events' },
+  { src: '/clients/client-1.webp', alt: 'Client A² Events' },
+  { src: '/clients/client-2.webp', alt: 'Client A² Events' },
   { src: '/clients/client-3.svg', alt: 'Client A² Events' },
 ]
 
