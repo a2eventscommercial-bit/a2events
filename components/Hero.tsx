@@ -12,7 +12,7 @@ const heroLogos = ['HORIZON', 'TECHCORP', 'SAFEX', 'CEVITAL', 'CONDOR', 'SONATRA
 // Remplace ces URLs par tes vraies photos quand tu les envoies.
 const serviceImages = [
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80', // conférences
-  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80', // stands d'expositions
+  '/hero/stands.webp', // stands d'expositions (photo réelle A² Events)
   'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1920&q=80', // impression & communication
   'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80', // supports & signalétique
   'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80', // branding
