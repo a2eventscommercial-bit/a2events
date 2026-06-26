@@ -44,7 +44,7 @@ export default function Hero() {
             className="lg:col-span-7"
           >
             <p className="text-[#CC0000] text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-6">
-              Agence Événementielle
+              A² Events
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
               {t.hero.headline}
