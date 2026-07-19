@@ -4,6 +4,7 @@ import Image from 'next/image'
 import SectionReveal from '@/components/SectionReveal'
 import Counter from '@/components/Counter'
 import PageHeader from '@/components/PageHeader'
+import Icon, { valueIconNames } from '@/components/Icons'
 import { useTranslations } from '@/lib/useTranslations'
 import Link from 'next/link'
 
@@ -14,7 +15,6 @@ const teamImages = [
   'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
 ]
 
-const valueIcons = ['⭐', '💡', '🤝', '🔥']
 
 export default function AboutPage() {
   const { t, rtl } = useTranslations()
@@ -101,8 +101,8 @@ export default function AboutPage() {
             {t.about.values.items.map((value, i) => (
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className={`${rtl ? 'text-right' : 'text-center'} group`}>
-                  <div className="w-16 h-16 bg-[#0A0A0A] flex items-center justify-center text-2xl mx-auto mb-5 group-hover:bg-[#CC0000] transition-colors duration-300">
-                    {valueIcons[i]}
+                  <div className="w-16 h-16 bg-[#0A0A0A] flex items-center justify-center mx-auto mb-5 group-hover:bg-[#CC0000] transition-colors duration-300">
+                    <Icon name={valueIconNames[i]} className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-[#0A0A0A] font-bold text-lg mb-3">{value.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{value.desc}</p>

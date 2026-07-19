@@ -26,7 +26,7 @@ export default function Footer() {
               <Image src="/logos/logo-white-transparent.svg" alt="A² Events" width={40} height={40} className="h-10 w-10" />
               <span className="text-white font-black text-xl tracking-tight">A² Events</span>
             </Link>
-            <p className="text-gray-600 text-sm mt-3">{t.footer.tagline}</p>
+            <p className="text-gray-400 text-sm mt-3">{t.footer.tagline}</p>
           </div>
 
           {/* Nav */}
@@ -57,10 +57,10 @@ export default function Footer() {
         </div>
 
         <div className={`mt-14 pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-3 ${rtl ? 'sm:flex-row-reverse' : ''}`}>
-          <p className="text-gray-700 text-xs">
+          <p className="text-gray-400 text-xs">
             © {new Date().getFullYear()} A² Events — {t.footer.rights}
           </p>
-          <p className="text-gray-700 text-xs">
+          <p className="text-gray-400 text-xs">
             {t.contact.info.email} · {t.contact.info.phone}
           </p>
         </div>

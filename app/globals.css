@@ -23,6 +23,25 @@
   [dir="rtl"] body {
     font-family: var(--font-arabic), var(--font-montserrat), sans-serif;
   }
+
+  /* Accessibilité clavier : anneau de focus visible partout */
+  :focus-visible {
+    outline: 2px solid #CC0000;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* Respect de "réduire les animations" (accessibilité / confort) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer utilities {

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionReveal from '@/components/SectionReveal'
 import PageHeader from '@/components/PageHeader'
+import Icon from '@/components/Icons'
 import { useTranslations } from '@/lib/useTranslations'
 
 export default function ContactPage() {
@@ -34,10 +35,10 @@ export default function ContactPage() {
   const inputClass = `w-full bg-neutral-800 border border-neutral-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#CC0000] transition-colors duration-200 placeholder:text-gray-500 ${rtl ? 'text-right' : 'text-left'}`
 
   const infoItems = [
-    { icon: '📞', label: 'Téléphone', value: t.contact.info.phone },
-    { icon: '✉️', label: 'Email', value: t.contact.info.email },
-    { icon: '📍', label: 'Adresse', value: t.contact.info.address },
-    { icon: '🕐', label: 'Horaires', value: t.contact.info.hours },
+    { icon: 'phone' as const, label: 'Téléphone', value: t.contact.info.phone },
+    { icon: 'mail' as const, label: 'Email', value: t.contact.info.email },
+    { icon: 'pin' as const, label: 'Adresse', value: t.contact.info.address },
+    { icon: 'clock' as const, label: 'Horaires', value: t.contact.info.hours },
   ]
 
   return (
@@ -54,10 +55,11 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
+                      <label htmlFor="name" className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
                         {t.contact.form.name} *
                       </label>
                       <input
+                        id="name"
                         type="text"
                         required
                         value={form.name}
@@ -67,10 +69,11 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
+                      <label htmlFor="email" className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
                         {t.contact.form.email} *
                       </label>
                       <input
+                        id="email"
                         type="email"
                         required
                         value={form.email}
@@ -83,10 +86,11 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
+                      <label htmlFor="phone" className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
                         {t.contact.form.phone}
                       </label>
                       <input
+                        id="phone"
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -95,10 +99,11 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
+                      <label htmlFor="service" className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
                         {t.contact.form.service}
                       </label>
                       <select
+                        id="service"
                         value={form.service}
                         onChange={(e) => setForm({ ...form, service: e.target.value })}
                         className={`${inputClass} cursor-pointer`}
@@ -112,10 +117,11 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
+                    <label htmlFor="message" className={`block text-gray-400 text-xs uppercase tracking-widest mb-2 ${rtl ? 'text-right' : 'text-left'}`}>
                       {t.contact.form.message} *
                     </label>
                     <textarea
+                        id="message"
                       required
                       rows={6}
                       value={form.message}
@@ -161,8 +167,8 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   {infoItems.map((item) => (
                     <div key={item.label} className={`flex items-start gap-4 ${rtl ? 'flex-row-reverse text-right' : ''}`}>
-                      <div className="w-12 h-12 bg-neutral-900 border-t-[2px] border-t-[#CC0000] flex items-center justify-center text-xl flex-shrink-0">
-                        {item.icon}
+                      <div className="w-12 h-12 bg-neutral-900 border-t-[2px] border-t-[#CC0000] flex items-center justify-center flex-shrink-0">
+                        <Icon name={item.icon} className="w-5 h-5 text-[#CC0000]" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-xs uppercase tracking-widest mb-1">{item.label}</p>

@@ -172,14 +172,14 @@ export default function Hero() {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="relative z-10 max-w-7xl mx-auto px-6 w-full hidden lg:block"
       >
-        <p className="text-center text-gray-600 text-[11px] uppercase tracking-[0.3em] mb-6">
+        <p className="text-center text-gray-400 text-[11px] uppercase tracking-[0.3em] mb-6">
           {t.home.trust.title}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
           {heroLogos.map((logo) => (
             <span
               key={logo}
-              className="text-gray-500 hover:text-gray-300 text-lg sm:text-xl font-black tracking-tight transition-colors duration-300"
+              className="text-gray-400 hover:text-white text-lg sm:text-xl font-black tracking-tight transition-colors duration-300"
             >
               {logo}
             </span>

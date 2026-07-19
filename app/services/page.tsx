@@ -7,7 +7,7 @@ import PageHeader from '@/components/PageHeader'
 import { useTranslations } from '@/lib/useTranslations'
 import Link from 'next/link'
 
-const serviceIcons = ['🎤', '🎪', '🖨️', '🪧', '🎨', '📱', '🚚', '🎬']
+import Icon, { serviceIconNames } from '@/components/Icons'
 
 export default function ServicesPage() {
   const { t, rtl } = useTranslations()
@@ -30,7 +30,7 @@ export default function ServicesPage() {
                     onClick={() => setExpanded(open ? null : service.id)}
                   >
                     <div className={`flex items-start gap-5 ${rtl ? 'flex-row-reverse' : ''}`}>
-                      <div className="text-4xl flex-shrink-0">{serviceIcons[i]}</div>
+                      <Icon name={serviceIconNames[i]} className="w-9 h-9 flex-shrink-0 text-[#CC0000]" />
                       <div className="flex-1 min-w-0">
                         <div className={`flex items-center justify-between gap-4 ${rtl ? 'flex-row-reverse' : ''}`}>
                           <h2 className="text-[#0A0A0A] font-bold text-xl">{service.title}</h2>

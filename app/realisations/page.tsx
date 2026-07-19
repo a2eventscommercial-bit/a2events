@@ -204,7 +204,7 @@ export default function RealisationsPage() {
                       activeImage === i ? 'border-[#CC0000]' : 'border-neutral-800'
                     }`}
                   >
-                    <Image src={img} alt="" fill className="object-cover" sizes="80px" />
+                    <Image src={img} alt={`${selectedProject.title} — photo ${i + 1}`} fill className="object-cover" sizes="80px" />
                   </div>
                 ))}
               </div>

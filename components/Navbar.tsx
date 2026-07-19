@@ -96,7 +96,7 @@ export default function Navbar() {
               <button
                 key={lang.code}
                 onClick={() => setLocale(lang.code)}
-                className={`text-[11px] font-semibold tracking-widest px-1.5 py-1 rounded-full transition-all duration-200 ${
+                className={`text-[11px] font-semibold tracking-widest min-w-[40px] min-h-[36px] flex items-center justify-center rounded-full transition-all duration-200 ${
                   locale === lang.code ? 'text-[#CC0000]' : 'text-gray-400 hover:text-white hover:bg-white/10'
                 }`}
               >
