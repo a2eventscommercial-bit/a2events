@@ -1,9 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import TextReveal from './TextReveal'
 
 interface Step {
   title: string
@@ -26,29 +25,46 @@ const stepImages = [
 
 export default function Approach({ eyebrow, heading, steps, rtl = false }: Props) {
   const [active, setActive] = useState(0)
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Étape active suivant la position de lecture — calculée au scroll,
+  // sans dépendre d'un IntersectionObserver (plus fiable).
+  useEffect(() => {
+    const onScroll = () => {
+      const mid = window.innerHeight / 2
+      let best = 0
+      let bestDist = Infinity
+      stepRefs.current.forEach((el, i) => {
+        if (!el) return
+        const r = el.getBoundingClientRect()
+        const dist = Math.abs(r.top + r.height / 2 - mid)
+        if (dist < bestDist) {
+          bestDist = dist
+          best = i
+        }
+      })
+      setActive(best)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
 
   return (
     <section className="relative bg-[#0A0A0A] py-28 sm:py-36 overflow-hidden">
-      {/* halo rouge discret */}
       <div className={`absolute top-1/4 w-[30rem] h-[30rem] bg-[#CC0000]/12 rounded-full blur-3xl ${rtl ? '-right-40' : '-left-40'}`} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#0A0A0A_90%)]" />
 
       <div className={`relative z-10 max-w-7xl mx-auto px-6 ${rtl ? 'text-right' : ''}`}>
-        {/* En-tête */}
+        {/* En-tête — toujours visible */}
         <div className="mb-16 sm:mb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5 }}
-            className="text-[#CC0000] text-sm font-bold uppercase tracking-[0.4em] mb-6"
-          >
-            {eyebrow}
-          </motion.p>
-          <TextReveal
-            text={heading}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] max-w-3xl"
-          />
+          <p className="text-[#CC0000] text-sm font-bold uppercase tracking-[0.4em] mb-6">{eyebrow}</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] max-w-3xl">
+            {heading}
+          </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -57,40 +73,30 @@ export default function Approach({ eyebrow, heading, steps, rtl = false }: Props
             {steps.map((step, i) => {
               const isActive = active === i
               return (
-                <motion.div
+                <div
                   key={i}
-                  onViewportEnter={() => setActive(i)}
-                  viewport={{ margin: '-45% 0px -45% 0px' }}
+                  ref={(el) => { stepRefs.current[i] = el }}
                   className={`flex gap-6 pb-14 last:pb-0 ${rtl ? 'flex-row-reverse' : ''}`}
                 >
                   {/* Ligne de progression */}
-                  <div className="relative w-[2px] flex-shrink-0">
+                  <div className="relative w-[2px] flex-shrink-0 self-stretch">
                     <span className="absolute inset-0 bg-white/10" />
                     <motion.span
-                      initial={{ scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      viewport={{ once: true, margin: '-30% 0px -30% 0px' }}
-                      transition={{ duration: 1, ease: 'easeOut' }}
+                      aria-hidden
+                      initial={false}
+                      animate={{ scaleY: isActive || i < active ? 1 : 0 }}
+                      transition={{ duration: 0.7, ease: 'easeOut' }}
                       className="absolute inset-0 bg-[#CC0000] origin-top"
                     />
-                    {/* Point de tête */}
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true, margin: '-30% 0px -30% 0px' }}
-                      transition={{ duration: 0.4, delay: 0.1 }}
-                      className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#CC0000]"
+                    <span
+                      className={`absolute -top-0.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full transition-colors duration-500 ${
+                        i <= active ? 'bg-[#CC0000]' : 'bg-white/20'
+                      }`}
                     />
                   </div>
 
-                  {/* Contenu */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-80px' }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="pt-0.5"
-                  >
+                  {/* Contenu — visible par défaut */}
+                  <div className="pt-0.5">
                     <span
                       className={`block font-mono text-sm mb-3 transition-colors duration-500 ${
                         isActive ? 'text-[#CC0000]' : 'text-neutral-600'
@@ -100,14 +106,20 @@ export default function Approach({ eyebrow, heading, steps, rtl = false }: Props
                     </span>
                     <h3
                       className={`text-2xl sm:text-3xl font-bold mb-3 transition-colors duration-500 ${
-                        isActive ? 'text-white' : 'text-gray-400'
+                        isActive ? 'text-white' : 'text-gray-500'
                       }`}
                     >
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed max-w-md">{step.desc}</p>
-                  </motion.div>
-                </motion.div>
+                    <p
+                      className={`leading-relaxed max-w-md transition-colors duration-500 ${
+                        isActive ? 'text-gray-300' : 'text-gray-500'
+                      }`}
+                    >
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
               )
             })}
           </div>
@@ -128,7 +140,6 @@ export default function Approach({ eyebrow, heading, steps, rtl = false }: Props
               ))}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
 
-              {/* Indicateur d'étape */}
               <div className={`absolute bottom-6 flex items-center gap-2 ${rtl ? 'right-6 flex-row-reverse' : 'left-6'}`}>
                 {steps.map((_, i) => (
                   <span
