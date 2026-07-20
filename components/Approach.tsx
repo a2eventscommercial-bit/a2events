@@ -67,7 +67,7 @@ export default function Approach({ eyebrow, heading, steps, rtl = false }: Props
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           {/* Colonne étapes */}
           <div>
             {steps.map((step, i) => {
@@ -124,9 +124,9 @@ export default function Approach({ eyebrow, heading, steps, rtl = false }: Props
             })}
           </div>
 
-          {/* Visuel synchronisé (desktop) */}
-          <div className="hidden lg:block sticky top-32">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
+          {/* Visuel synchronisé (desktop) — épouse la hauteur des étapes */}
+          <div className="hidden lg:block">
+            <div className="relative h-full min-h-[28rem] rounded-2xl overflow-hidden border border-white/10">
               {stepImages.map((src, i) => (
                 <motion.div
                   key={i}
