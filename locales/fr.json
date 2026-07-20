@@ -27,6 +27,24 @@
       "title": "Notre approche",
       "lines": ["Chaque détail compte.", "Chaque émotion est pensée.", "Chaque événement, une signature."]
     },
+    "approach": {
+      "eyebrow": "Notre approche",
+      "heading": "Une méthode éprouvée, du premier brief à la dernière minute.",
+      "steps": [
+        {
+          "title": "Écoute & stratégie",
+          "desc": "Nous analysons vos objectifs, votre public et vos contraintes pour définir un concept sur mesure et un budget maîtrisé."
+        },
+        {
+          "title": "Conception & production",
+          "desc": "Nos équipes créatives et techniques donnent vie au projet : design, fabrication des stands, impression, logistique."
+        },
+        {
+          "title": "Exécution & suivi",
+          "desc": "Le jour J, nous orchestrons chaque détail sur le terrain, puis mesurons l'impact de votre événement."
+        }
+      ]
+    },
     "groups": [
       {
         "title": "Événementiel",

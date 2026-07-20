@@ -27,6 +27,24 @@
       "title": "Our approach",
       "lines": ["Every detail matters.", "Every emotion is designed.", "Every event, a signature."]
     },
+    "approach": {
+      "eyebrow": "Our approach",
+      "heading": "A proven method, from the first brief to the final minute.",
+      "steps": [
+        {
+          "title": "Listening & strategy",
+          "desc": "We analyse your goals, your audience and your constraints to define a tailor-made concept within a controlled budget."
+        },
+        {
+          "title": "Design & production",
+          "desc": "Our creative and technical teams bring the project to life: design, stand construction, printing, logistics."
+        },
+        {
+          "title": "Delivery & follow-up",
+          "desc": "On the day, we orchestrate every detail on site, then measure the impact of your event."
+        }
+      ]
+    },
     "groups": [
       {
         "title": "Events",

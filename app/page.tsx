@@ -7,7 +7,7 @@ import Marquee from '@/components/Marquee'
 import Hero from '@/components/Hero'
 import WorkCarousel from '@/components/WorkCarousel'
 import Partners from '@/components/Partners'
-import PinnedReveal from '@/components/PinnedReveal'
+import Approach from '@/components/Approach'
 import { useTranslations } from '@/lib/useTranslations'
 
 const workProjects = [
@@ -47,11 +47,11 @@ export default function HomePage() {
       {/* ============ PARTENAIRES — grille de logos (style Terminal) ============ */}
       <Partners rtl={rtl} title={t.home.trust.title} subtitle={t.home.trust.subtitle} />
 
-      {/* ============ MANIFESTE — section épinglée au scroll (style composites) ============ */}
-      <PinnedReveal
-        title={t.home.manifesto.title}
-        lines={t.home.manifesto.lines}
-        image="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80"
+      {/* ============ NOTRE APPROCHE — étapes numérotées + visuel synchronisé ============ */}
+      <Approach
+        eyebrow={t.home.approach.eyebrow}
+        heading={t.home.approach.heading}
+        steps={t.home.approach.steps}
         rtl={rtl}
       />
 
