@@ -17,7 +17,7 @@ const serviceImages = [
   'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80', // supports & signalétique
   'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80', // branding
   'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80', // marketing digital
-  'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80', // logistique
+  '/hero/logistique.jpg', // logistique événementielle (photo réelle A²)
   'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80', // couverture médiatique
 ]
 
