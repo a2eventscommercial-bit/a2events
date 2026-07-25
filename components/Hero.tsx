@@ -14,7 +14,7 @@ const serviceImages: { src: string; pos?: string }[] = [
   { src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80' }, // conférences
   { src: '/hero/stands.webp' }, // stands d'expositions (réelle A²)
   { src: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1920&q=80' }, // impression
-  { src: '/hero/signaletique.webp', pos: '78% 42%' }, // supports & signalétique — cadre l'unipole à droite
+  { src: '/hero/signaletique.webp', pos: '78% 34%' }, // supports & signalétique — cadre l'unipole à droite
   { src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80' }, // branding
   { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80' }, // marketing digital
   { src: '/hero/logistique.jpg', pos: '50% 35%' }, // logistique — garde la scène visible
