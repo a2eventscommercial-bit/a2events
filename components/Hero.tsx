@@ -66,21 +66,14 @@ export default function Hero() {
           </motion.div>
         </AnimatePresence>
       </div>
-      {/* Voile directionnel : sombre côté texte, plus clair côté visuel
-          (pour laisser voir le travail sur la photo, ex. l'unipole à droite) */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/45" />
-      <div
-        className={`absolute inset-0 ${
-          rtl
-            ? 'bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/85 to-[#0A0A0A]/25'
-            : 'bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-[#0A0A0A]/25'
-        }`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/40" />
+      {/* filtre noir + touche rouge par-dessus la photo */}
+      <div className="absolute inset-0 bg-[#0A0A0A]/82" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/70" />
 
       {/* halos rouges animés */}
       <div className="absolute top-1/4 -left-32 w-[28rem] h-[28rem] bg-[#CC0000]/25 rounded-full blur-3xl animate-blob-slow" />
       <div className="absolute bottom-10 -right-32 w-[28rem] h-[28rem] bg-[#CC0000]/15 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '6s' }} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0A0A0A_85%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex items-center">
         <div className={`grid lg:grid-cols-12 gap-12 items-center w-full ${rtl ? 'text-right' : ''}`}>
