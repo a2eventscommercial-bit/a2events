@@ -9,16 +9,16 @@ import { useTranslations } from '@/lib/useTranslations'
 const heroLogos = ['HORIZON', 'TECHCORP', 'SAFEX', 'CEVITAL', 'CONDOR', 'SONATRACH']
 
 // Photo de fond par service (même ordre que t.services.items).
-// Remplace ces URLs par tes vraies photos quand tu les envoies.
-const serviceImages = [
-  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80', // conférences
-  '/hero/stands.webp', // stands d'expositions (photo réelle A² Events)
-  'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1920&q=80', // impression & communication
-  '/hero/signaletique.jpg', // supports rigides & signalétique (photo réelle A²)
-  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80', // branding
-  'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80', // marketing digital
-  '/hero/logistique.jpg', // logistique événementielle (photo réelle A²)
-  'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80', // couverture médiatique
+// `pos` = point focal (objectPosition) pour garder l'élément clé visible.
+const serviceImages: { src: string; pos?: string }[] = [
+  { src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80' }, // conférences
+  { src: '/hero/stands.webp' }, // stands d'expositions (réelle A²)
+  { src: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1920&q=80' }, // impression
+  { src: '/hero/signaletique.webp', pos: '78% 42%' }, // supports & signalétique — cadre l'unipole à droite
+  { src: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80' }, // branding
+  { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80' }, // marketing digital
+  { src: '/hero/logistique.jpg', pos: '50% 35%' }, // logistique — garde la scène visible
+  { src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80' }, // médias
 ]
 
 export default function Hero() {
@@ -55,24 +55,32 @@ export default function Hero() {
             className="absolute inset-0"
           >
             <Image
-              src={serviceImages[active] ?? serviceImages[0]}
+              src={(serviceImages[active] ?? serviceImages[0]).src}
               alt=""
               fill
               priority
               className="object-cover"
+              style={{ objectPosition: (serviceImages[active] ?? serviceImages[0]).pos ?? 'center' }}
               sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>
       </div>
-      {/* filtre noir + touche rouge par-dessus la photo */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/82" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/70" />
+      {/* Voile directionnel : sombre côté texte, plus clair côté visuel
+          (pour laisser voir le travail sur la photo, ex. l'unipole à droite) */}
+      <div className="absolute inset-0 bg-[#0A0A0A]/45" />
+      <div
+        className={`absolute inset-0 ${
+          rtl
+            ? 'bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/85 to-[#0A0A0A]/25'
+            : 'bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-[#0A0A0A]/25'
+        }`}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/40" />
 
       {/* halos rouges animés */}
       <div className="absolute top-1/4 -left-32 w-[28rem] h-[28rem] bg-[#CC0000]/25 rounded-full blur-3xl animate-blob-slow" />
       <div className="absolute bottom-10 -right-32 w-[28rem] h-[28rem] bg-[#CC0000]/15 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '6s' }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0A0A0A_85%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex-1 flex items-center">
         <div className={`grid lg:grid-cols-12 gap-12 items-center w-full ${rtl ? 'text-right' : ''}`}>
@@ -114,6 +122,7 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block lg:col-span-5"
+            style={{ textShadow: '0 2px 16px rgba(0,0,0,0.85)' }}
           >
             <div className="relative overflow-hidden" style={{ height: itemH * 5 }}>
               {/* ligne de focus centrale */}
