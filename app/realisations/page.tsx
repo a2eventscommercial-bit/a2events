@@ -1,12 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHeader from '@/components/PageHeader'
 import { useTranslations } from '@/lib/useTranslations'
+import { getRealisations, urlFor } from '@/lib/sanity'
 
-const projects = [
+interface Project {
+  id: number | string
+  title: string
+  category: string
+  desc: string
+  images: string[]
+}
+
+const fallbackProjects: Project[] = [
   {
     id: 1,
     title: 'Conférence Nationale Tech 2024',
@@ -81,8 +90,26 @@ type FilterKey = 'all' | 'conference' | 'stand' | 'gala' | 'corporate' | 'brandi
 export default function RealisationsPage() {
   const { t, rtl } = useTranslations()
   const [activeFilter, setActiveFilter] = useState<FilterKey>('all')
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [projects, setProjects] = useState<Project[]>(fallbackProjects)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [activeImage, setActiveImage] = useState(0)
+
+  // Remplace par les réalisations gérées dans Sanity (si configuré et non vide)
+  useEffect(() => {
+    getRealisations().then((items) => {
+      if (items.length) {
+        setProjects(
+          items.map((it) => ({
+            id: it._id,
+            title: it.title,
+            category: it.category,
+            desc: it.desc || '',
+            images: (it.images || []).map((img) => urlFor(img, 1200)).filter(Boolean),
+          }))
+        )
+      }
+    })
+  }, [])
 
   const filtered = activeFilter === 'all'
     ? projects

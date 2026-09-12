@@ -1,8 +1,10 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import TextReveal from './TextReveal'
+import { getClientLogos, urlFor } from '@/lib/sanity'
 
 interface Props {
   rtl?: boolean
@@ -10,8 +12,13 @@ interface Props {
   subtitle: string
 }
 
-// Logos horizontaux (largeur > hauteur)
-const horizontal = [
+interface Logo {
+  src: string
+  alt: string
+}
+
+// Repli : logos horizontaux (largeur > hauteur)
+const fallbackHorizontal: Logo[] = [
   { src: '/clients/client-onda.svg', alt: 'ONDA' },
   { src: '/clients/client-guerbet.svg', alt: 'Guerbet' },
   { src: '/clients/client-saidal.svg', alt: 'Saidal' },
@@ -22,8 +29,8 @@ const horizontal = [
   { src: '/clients/client-biogalinic.svg', alt: 'Biogalinic' },
 ]
 
-// Logos verticaux / carrés (hauteur ≈ ou > largeur)
-const vertical = [
+// Repli : logos verticaux / carrés (hauteur ≈ ou > largeur)
+const fallbackVertical: Logo[] = [
   { src: '/clients/client-bigdis.svg', alt: 'BIGDIS' },
   { src: '/clients/client-1.webp', alt: 'Éditions Talantikit' },
   { src: '/clients/client-3.svg', alt: 'Client A² Events' },
@@ -34,6 +41,24 @@ const logoClass =
   'w-auto max-w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500'
 
 export default function Partners({ rtl = false, title, subtitle }: Props) {
+  const [horizontal, setHorizontal] = useState<Logo[]>(fallbackHorizontal)
+  const [vertical, setVertical] = useState<Logo[]>(fallbackVertical)
+
+  // Remplace par les logos gérés dans Sanity (si configuré et non vide)
+  useEffect(() => {
+    getClientLogos().then((items) => {
+      if (items.length) {
+        const mapped = items.map((it) => ({
+          src: urlFor(it.logo, 480),
+          alt: it.name || 'Client A² Events',
+          orientation: it.orientation || 'horizontal',
+        }))
+        setHorizontal(mapped.filter((l) => l.orientation !== 'vertical'))
+        setVertical(mapped.filter((l) => l.orientation === 'vertical'))
+      }
+    })
+  }, [])
+
   return (
     <section className="bg-white py-28">
       <div className="max-w-6xl mx-auto px-6">
