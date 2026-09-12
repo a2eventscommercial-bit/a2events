@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 /** Référence d'image Sanity (objet asset ou URL) */
 type SanityImageSource = { asset?: { _ref?: string } } | Record<string, unknown> | string
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '7u84bu03'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const apiVersion = '2024-01-01'
 
