@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import SectionReveal from '@/components/SectionReveal'
 import TextReveal from '@/components/TextReveal'
@@ -8,22 +9,38 @@ import Hero from '@/components/Hero'
 import WorkCarousel from '@/components/WorkCarousel'
 import Partners from '@/components/Partners'
 import Approach from '@/components/Approach'
+import { getRealisations, urlFor } from '@/lib/sanity'
 import { useTranslations } from '@/lib/useTranslations'
 
-const workProjects = [
-  { id: 'projet-1', name: 'Conférence Nationale Tech', type: 'Conférence', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80' },
-  { id: 'projet-2', name: 'Stand Expo Construire', type: 'Stand', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80' },
-  { id: 'projet-3', name: 'Gala Horizon', type: 'Gala', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80' },
-  { id: 'projet-4', name: 'Séminaire Leadership', type: 'Corporate', img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&q=80' },
-  { id: 'projet-5', name: 'Rebranding TechStart', type: 'Branding', img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80' },
-  { id: 'projet-6', name: 'Forum Investissement', type: 'Conférence', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80' },
-]
+interface WorkProject {
+  id: string
+  name: string
+  type: string
+  img: string
+}
 
 const serviceIcons = ['🎤', '🎪', '🎨', '📱']
 const marqueeItems = ['Événementiel', 'Stands', 'Branding', 'Conférences', 'Galas', 'Impression', 'Digital', 'Médias']
 
 export default function HomePage() {
   const { t, rtl } = useTranslations()
+  const [workProjects, setWorkProjects] = useState<WorkProject[]>([])
+
+  // Réalisations gérées dans le back-office Sanity
+  useEffect(() => {
+    getRealisations().then((items) => {
+      setWorkProjects(
+        items
+          .filter((it) => it.images?.length)
+          .map((it) => ({
+            id: it._id,
+            name: it.title,
+            type: t.realisations.filters[it.category as keyof typeof t.realisations.filters] || '',
+            img: urlFor(it.images[0], 1200),
+          }))
+      )
+    })
+  }, [t])
 
   return (
     <div className={rtl ? 'font-arabic' : ''} dir={rtl ? 'rtl' : 'ltr'}>
@@ -55,7 +72,8 @@ export default function HomePage() {
         rtl={rtl}
       />
 
-      {/* ============ WORK — fond gris, cartes tilt 3D (panneau arrondi qui chevauche) ============ */}
+      {/* ============ WORK — affiché seulement s'il y a des réalisations publiées ============ */}
+      {workProjects.length > 0 && (
       <section className="relative z-10 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-[#F2F2F2] pt-28 pb-28 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.5)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionReveal>
@@ -75,6 +93,7 @@ export default function HomePage() {
           </SectionReveal>
         </div>
       </section>
+      )}
 
       {/* ============ SERVICES — panneau blanc arrondi qui chevauche le gris ============ */}
       <section className="relative z-20 -mt-12 rounded-t-[2.5rem] sm:rounded-t-[3.5rem] bg-white pt-28 pb-28 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.15)]">

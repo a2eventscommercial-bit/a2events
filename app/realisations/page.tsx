@@ -175,10 +175,9 @@ export default function RealisationsPage() {
                     <span className="text-[#CC0000] text-[11px] font-semibold uppercase tracking-[0.2em]">
                       {t.realisations.filters[project.category as FilterKey]}
                     </span>
-                    <h3 className="text-[#0A0A0A] text-lg font-bold mt-1 group-hover:text-[#CC0000] transition-colors duration-300">
+                    <h3 className="text-[#0A0A0A] text-lg font-bold mt-1 leading-snug group-hover:text-[#CC0000] transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">{project.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -242,7 +241,9 @@ export default function RealisationsPage() {
                   {t.realisations.filters[selectedProject.category as FilterKey]}
                 </span>
                 <h2 className="text-white font-black text-2xl mt-1 mb-3">{selectedProject.title}</h2>
-                <p className="text-gray-400 leading-relaxed">{selectedProject.desc}</p>
+                {selectedProject.desc && (
+                  <p className="text-gray-400 leading-relaxed whitespace-pre-line">{selectedProject.desc}</p>
+                )}
               </div>
             </motion.div>
           </motion.div>
