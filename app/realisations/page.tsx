@@ -85,7 +85,8 @@ const fallbackProjects: Project[] = [
   },
 ]
 
-type FilterKey = 'all' | 'conference' | 'stand' | 'gala' | 'corporate' | 'branding'
+// Les catégories de réalisations = les 8 services (voir locales services.items[].id)
+type FilterKey = string
 
 export default function RealisationsPage() {
   const { t, rtl } = useTranslations()
@@ -111,11 +112,24 @@ export default function RealisationsPage() {
     })
   }, [])
 
-  const filtered = activeFilter === 'all'
+  // Libellé d'une catégorie = titre du service correspondant (suit la langue active)
+  const labelFor = (key: string) =>
+    key === 'all'
+      ? t.realisations.filters.all
+      : t.services.items.find((s) => s.id === key)?.title ?? key
+
+  // On n'affiche que les filtres réellement utilisés, dans l'ordre des services
+  const usedCategories = new Set(projects.map((p) => p.category))
+  const filterKeys: FilterKey[] = [
+    'all',
+    ...t.services.items.filter((s) => usedCategories.has(s.id)).map((s) => s.id),
+  ]
+
+  const activeIsValid = filterKeys.includes(activeFilter)
+  const filtered = activeFilter === 'all' || !activeIsValid
     ? projects
     : projects.filter((p) => p.category === activeFilter)
 
-  const filterKeys: FilterKey[] = ['all', 'conference', 'stand', 'gala', 'corporate', 'branding']
 
   return (
     <div className={`min-h-screen bg-[#F2F2F2] ${rtl ? 'font-arabic' : ''}`} dir={rtl ? 'rtl' : 'ltr'}>
@@ -138,7 +152,7 @@ export default function RealisationsPage() {
                     : 'text-gray-500 hover:text-[#0A0A0A]'
                 }`}
               >
-                {t.realisations.filters[key]}
+                {labelFor(key)}
               </button>
             ))}
           </div>
@@ -173,7 +187,7 @@ export default function RealisationsPage() {
                   </div>
                   <div className={`p-5 ${rtl ? 'text-right' : ''}`}>
                     <span className="text-[#CC0000] text-[11px] font-semibold uppercase tracking-[0.2em]">
-                      {t.realisations.filters[project.category as FilterKey]}
+                      {labelFor(project.category)}
                     </span>
                     <h3 className="text-[#0A0A0A] text-lg font-bold mt-1 leading-snug group-hover:text-[#CC0000] transition-colors duration-300">
                       {project.title}
@@ -238,7 +252,7 @@ export default function RealisationsPage() {
               {/* Info */}
               <div className={`p-6 pt-2 ${rtl ? 'text-right' : 'text-left'}`}>
                 <span className="text-[#CC0000] text-xs font-semibold uppercase tracking-[0.25em]">
-                  {t.realisations.filters[selectedProject.category as FilterKey]}
+                  {labelFor(selectedProject.category)}
                 </span>
                 <h2 className="text-white font-black text-2xl mt-1 mb-3">{selectedProject.title}</h2>
                 {selectedProject.desc && (

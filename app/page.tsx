@@ -35,7 +35,7 @@ export default function HomePage() {
           .map((it) => ({
             id: it._id,
             name: it.title,
-            type: t.realisations.filters[it.category as keyof typeof t.realisations.filters] || '',
+            type: t.services.items.find((s) => s.id === it.category)?.title ?? '',
             img: urlFor(it.images[0], 1200),
           }))
       )
