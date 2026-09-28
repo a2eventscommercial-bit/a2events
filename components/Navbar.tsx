@@ -47,13 +47,12 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 ps-1">
           <Image
-            src="/logo.svg"
+            src="/logo-a2.png"
             alt="A² Events"
             width={36}
             height={36}
-            className="h-9 w-9"
+            className="h-9 w-9 rounded-md"
             priority
-            style={{ filter: 'drop-shadow(0 0 1.5px rgba(255,255,255,0.58)) drop-shadow(0 0 4px rgba(255,255,255,0.36))' }}
           />
           <span className="text-white font-black text-lg tracking-tight hidden sm:inline">A² Events</span>
         </Link>

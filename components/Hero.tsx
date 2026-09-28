@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from '@/lib/useTranslations'
 
-const heroLogos = ['HORIZON', 'TECHCORP', 'SAFEX', 'CEVITAL', 'CONDOR', 'SONATRACH']
 
 // Photo de fond par service (même ordre que t.services.items).
 // `pos` = point focal (objectPosition) pour garder l'élément clé visible.
@@ -167,27 +166,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* BAS — logos clients gris clair */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full hidden lg:block"
-      >
-        <p className="text-center text-gray-400 text-[11px] uppercase tracking-[0.3em] mb-6">
-          {t.home.trust.title}
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {heroLogos.map((logo) => (
-            <span
-              key={logo}
-              className="text-gray-400 hover:text-white text-lg sm:text-xl font-black tracking-tight transition-colors duration-300"
-            >
-              {logo}
-            </span>
-          ))}
-        </div>
-      </motion.div>
     </section>
   )
 }

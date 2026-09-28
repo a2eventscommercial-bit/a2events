@@ -31,6 +31,7 @@ const fallbackHorizontal: Logo[] = [
 
 // Repli : logos verticaux / carrés (hauteur ≈ ou > largeur)
 const fallbackVertical: Logo[] = [
+  { src: '/clients/client-karate.webp', alt: 'Fédération Algérienne de Karaté-Do' },
   { src: '/clients/client-bigdis.svg', alt: 'BIGDIS' },
   { src: '/clients/client-1.webp', alt: 'Éditions Talantikit' },
   { src: '/clients/client-3.svg', alt: 'Client A² Events' },
