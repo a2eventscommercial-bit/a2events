@@ -1,20 +1,11 @@
 'use client'
 
-import Image from 'next/image'
 import SectionReveal from '@/components/SectionReveal'
 import Counter from '@/components/Counter'
 import PageHeader from '@/components/PageHeader'
 import Icon, { valueIconNames } from '@/components/Icons'
 import { useTranslations } from '@/lib/useTranslations'
 import Link from 'next/link'
-
-const teamImages = [
-  'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
-  'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
-  'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80',
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-]
-
 
 export default function AboutPage() {
   const { t, rtl } = useTranslations()
@@ -113,38 +104,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="section-dark py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="text-center mb-16">
-              <p className="text-[#CC0000] text-sm font-semibold uppercase tracking-[0.3em] mb-3">Les visages de A²</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-white">{t.about.team.title}</h2>
-            </div>
-          </SectionReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.about.team.members.map((member, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
-                <div className={`group ${rtl ? 'text-right' : 'text-center'}`}>
-                  <div className="relative h-64 mb-4 overflow-hidden">
-                    <Image
-                      src={teamImages[i]}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-40" />
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#CC0000] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-white font-bold text-base mb-1">{member.name}</h3>
-                  <p className="text-[#CC0000] text-xs font-semibold uppercase tracking-widest">{member.role}</p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-20 section-light">
